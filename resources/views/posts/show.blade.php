@@ -1,0 +1,1 @@
+<h1>Post id# {{ $post->id }}</h1>
