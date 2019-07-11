@@ -23,7 +23,7 @@
 								<div class="card-small">Posted on {{ $post->created_at->format('F j, Y \a\t h:ma') }}</div>
 								<div class="mr-auto"><a href="/posts/{{$post->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
 								<div class="">
-									{!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST'])!!}
+									{!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete'])!!}
 										{{Form::hidden('_method', 'DELETE')}}
 										{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger'])}}
 									{!!Form::close()!!}
@@ -40,5 +40,11 @@
 		</div>
 		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
 	</div>
+
+	<script>
+	    $(".delete").on("submit", function(){
+	        return confirm("Delete this post?");
+	    });
+	</script>
 
 @endsection

@@ -94,6 +94,12 @@ class ArchiveController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Delete post
+        $archiveItem = ArchiveItem::find($id);
+
+        // delete documents
+        
+        $archiveItem->delete();
+        return redirect('/archive')->with('success', 'Archive Year Deleted');
     }
 }
