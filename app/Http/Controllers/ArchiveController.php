@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ArchiveItem;
+use App\Document;
 
 class ArchiveController extends Controller
 {
@@ -43,19 +44,51 @@ class ArchiveController extends Controller
             'highest_week_score' => 'numeric'
         ]);
 
+        $archiveId = $request->input('id');
+
         // Create new archive item
         $archiveItem = new ArchiveItem;
-
-        // create documents
-
-        $archiveItem->id = $request->input('id');
+        $archiveItem->id = $archiveId;
         $archiveItem->league_champ_team = $request->input('league_champ_team');
         $archiveItem->most_points_team = $request->input('most_points_team');
         $archiveItem->most_points_score = $request->input('most_points_score');
         $archiveItem->highest_week_team = $request->input('highest_week_team');
         $archiveItem->highest_week_score = $request->input('highest_week_score');
         $archiveItem->save();
-        return redirect('/archive')->with('success', 'Archive Created');
+
+        // retrieve the saved archive item object
+        $archiveItemSaved = ArchiveItem::find($archiveId);
+
+        if(count($request->file('documents'))) {
+            $documentObjects = [];
+            // file upload
+            $allowedfileExtension=['pdf','jpg','png','gif','doc','docx'];
+            $files = $request->file('documents');
+            foreach($files as $file) {
+                $fileNameWithExt = $file->getClientOriginalName();
+                $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $fileNameToStore = $fileName."_".time().'.'.$extension;
+                if(in_array($extension,$allowedfileExtension)) {
+                    // upload
+                    $path = $file->storeAs('public/documents', $fileNameToStore);
+                    // create a new document object in array
+                    $documentObjects[] = new Document([
+                        'file_name' => $fileNameToStore,
+                        'description' => ''
+                    ]);
+                }
+            }
+            // save all the created document objects
+            if(count($documentObjects>0)) {
+                $archiveItemSaved->documents()->saveMany($documentObjects);
+            }
+            // if uploaded files, redirect to the edit form
+            return redirect('archive/'.$archiveId.'/edit')->with('success', 'Files Uploaded');
+        } else {
+            // if no uploaded files, redirect to archive index
+            return redirect('/archive')->with('success', 'Archive Created');
+        }
     }
 
     /**
@@ -98,16 +131,44 @@ class ArchiveController extends Controller
         ]);
 
         $archiveItem = ArchiveItem::find($id);
-
-        // update documents
-
         $archiveItem->league_champ_team = $request->input('league_champ_team');
         $archiveItem->most_points_team = $request->input('most_points_team');
         $archiveItem->most_points_score = $request->input('most_points_score');
         $archiveItem->highest_week_team = $request->input('highest_week_team');
         $archiveItem->highest_week_score = $request->input('highest_week_score');
         $archiveItem->save();
-        return redirect('/archive')->with('success', 'Archive Updated');        
+
+        // upload new files
+        if(count($request->file('documents'))) {
+            $documentObjects = [];
+            // file upload
+            $allowedfileExtension=['pdf','jpg','png','gif','doc','docx'];
+            $files = $request->file('documents');
+            foreach($files as $file) {
+                $fileNameWithExt = $file->getClientOriginalName();
+                $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $fileNameToStore = $fileName."_".time().'.'.$extension;
+                if(in_array($extension,$allowedfileExtension)) {
+                    // upload
+                    $path = $file->storeAs('public/documents', $fileNameToStore);
+                    // create a new document object in array
+                    $documentObjects[] = new Document([
+                        'file_name' => $fileNameToStore,
+                        'description' => ''
+                    ]);
+                }
+            }
+            // save all the created document objects
+            if($documentObjects) {
+                $archiveItem->documents()->saveMany($documentObjects);
+            }
+            // if uploaded files, redirect to the edit form
+            return redirect('archive/'.$id.'/edit')->with('success', 'Files Uploaded');
+        } else {
+            // if no uploaded files, redirect to archive index
+            return redirect('/archive')->with('success', 'Archive Created');
+        }     
     }
 
     /**

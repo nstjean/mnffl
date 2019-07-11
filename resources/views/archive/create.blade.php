@@ -41,6 +41,10 @@
 					{{Form::text('highest_week_score', '', ['class' => 'form-control', 'placeholder' => ''])}}
 				</div>
 				<div class="form-group">
+					{{Form::label('documents', 'Upload Documents:', ['class' => ''])}}
+					{{Form::file('documents[]', ['multiple' => 'multiple'])}}
+				</div>
+				<div class="form-group">
 					<label></label>
 					{{Form::submit('Submit', ['class' => 'btn btn-primary form-submit'])}}
 				</div>

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model
 {
+    protected $fillable = ['file_name','description'];
+
     /**
 	* Get the archive item that owns document.
 	*/

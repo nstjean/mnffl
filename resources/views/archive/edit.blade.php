@@ -41,6 +41,24 @@
 					{{Form::text('highest_week_score', $archiveItem->highest_week_score, ['class' => 'form-control'])}}
 				</div>
 				<div class="form-group">
+					{{Form::label('documents', 'Documents:', ['class' => ''])}}
+					<div>
+						<ul>
+							@if(count($archiveItem->documents))
+								@foreach($archiveItem->documents as $document)
+									<li>{{$document->description}} - {{$document->file_name}}</li>
+								@endforeach
+							@else
+								<li>No documents uploaded.</li>
+							@endif
+						</ul>
+					</div>
+				</div>
+				<div class="form-group">
+					{{Form::label('documents', 'Upload New Documents:', ['class' => ''])}}
+					{{Form::file('documents[]', ['multiple' => 'multiple'])}}
+				</div>
+				<div class="form-group">
 					<label></label>
 					{{Form::hidden('_method','PUT')}}
 					{{Form::submit('Submit', ['class' => 'btn btn-primary form-submit'])}}
