@@ -10711,6 +10711,19 @@ a:hover {
   color: white;
 }
 
+.archive-card .card-header a {
+  color: white;
+}
+
+archive-card .card-header a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.card-label {
+  font-weight: bold;
+}
+
 .archive-create-page form {
   margin-top: 15px;
 }

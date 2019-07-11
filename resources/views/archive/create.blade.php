@@ -17,8 +17,8 @@
 
 			{!! Form::open(['action' => 'ArchiveController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 				<div class="form-group">
-					{{Form::label('year', 'Year:', ['class' => ''])}}
-					{{Form::text('year', '', ['class' => 'form-control form-year', 'placeholder' => ''])}}
+					{{Form::label('id', 'Year:', ['class' => ''])}}
+					{{Form::text('id', '', ['class' => 'form-control form-year', 'placeholder' => ''])}}
 				</div>
 				<div class="form-group">
 					{{Form::label('league_champ_team', 'League Champ - Team:', ['class' => ''])}}
@@ -30,7 +30,7 @@
 				</div>
 				<div class="form-group">
 					{{Form::label('most_points_value', 'Most Points - Value:', ['class' => ''])}}
-					{{Form::text('most_points_value', '', ['class' => 'form-control', 'placeholder' => ''])}}
+					{{Form::text('most_points_score', '', ['class' => 'form-control', 'placeholder' => ''])}}
 				</div>
 				<div class="form-group">
 					{{Form::label('highest_week_team', 'Highest Week - Team:', ['class' => ''])}}
@@ -38,7 +38,7 @@
 				</div>
 				<div class="form-group">
 					{{Form::label('highest_week_value', 'Highest Week - Value:', ['class' => ''])}}
-					{{Form::text('highest_week_value', '', ['class' => 'form-control', 'placeholder' => ''])}}
+					{{Form::text('highest_week_score', '', ['class' => 'form-control', 'placeholder' => ''])}}
 				</div>
 				<div class="form-group">
 					<label></label>

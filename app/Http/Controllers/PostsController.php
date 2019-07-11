@@ -36,6 +36,11 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        // validation
+        $validatedData = $request->validate([
+            'content' => 'required_without:post_image',
+        ]);
+
         // file upload
         if($request->hasFile('post_image')) {
             // get filename.ext
@@ -52,7 +57,11 @@ class PostsController extends Controller
         
         // Create post
         $post = new Post;
-        $post->content = $request->input('body');
+        if($post->content) {
+            $post->content = $request->input('content');
+        } else {
+            $post->content = "";
+        }
         $post->user_id = 1; // auth()->user()->id;
         $post->image_name = $fileNameToStore;
         $post->save();
@@ -93,6 +102,11 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // validation
+        $validatedData = $request->validate([
+            'content' => 'required_without:post_image',
+        ]);
+
         // file upload
         if($request->hasFile('post_image')) {
             // get filename.ext
@@ -107,7 +121,11 @@ class PostsController extends Controller
         
         // Create post
         $post = Post::find($id);
-        $post->content = $request->input('body');
+        if($request->input('content')) {
+            $post->content = $request->input('content');
+        } else {
+            $post->content = "";
+        }
         if($request->hasFile('cover_image')) {
             $post->image_name = $fileNameToStore;
         }

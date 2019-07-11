@@ -21,17 +21,20 @@
 							<div class="card-header">
 								<div class="d-flex flex-row align-items-start">
 									<div class="mr-auto">
-										<h3>{{$archiveItem->id}}</h3>
+										<h3><a href="/archive/{{$archiveItem->id}}">{{$archiveItem->id}}</a></h3>
 									</div>
 								</div>
 							</div>
 							<div class="card-body d-flex flex-column align-items-start">
 								<div class="card-content mb-auto align-self-stretch">
-									League Champ: {{$archiveItem->league_champ_team}}<br>
-									Most Points: {{$archiveItem->most_points_team}} ({{$archiveItem->most_points_score}})<br>
-									Highest Week: {{$archiveItem->highest_week_team}} ({{$archiveItem->highest_week_score}})<br>
+									<span class="card-label">League Champ:</span>
+									{{$archiveItem->league_champ_team}}<br>
+									<span class="card-label">Most Points:</span>
+									{{$archiveItem->most_points_team}} ({{$archiveItem->most_points_score}})<br>
+									<span class="card-label">Highest Week:</span>
+									{{$archiveItem->highest_week_team}} ({{$archiveItem->highest_week_score}})<br>
 									@if(count($archiveItem->documents)>0)
-									Documents:
+									<span class="card-label">Documents:</span>
 										<ul>
 											@foreach($archiveItem->documents as $document)
 												<li>{{$document->description}} - {{$document->file_name}}</li>

@@ -52,6 +52,16 @@ a:hover {
 	font-weight: bold;
 	color: white;
 }
+.archive-card .card-header a {
+	color: white;
+}
+archive-card .card-header a:hover {
+	color: white;
+	text-decoration: underline;
+}
+.card-label {
+	font-weight: bold;
+}
 
 // Archive Form
 .archive-create-page form {
@@ -61,7 +71,6 @@ a:hover {
   margin-bottom: 0;
   margin-top: 0.5em;
 }
-
 .archive-create-page .form-group {
 	display: flex;
 	flex-direction: row;

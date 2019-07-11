@@ -17,7 +17,7 @@
 
 			{!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 				<div class="form-group">
-					{{Form::textarea('body', $post->content, ['class' => 'form-control', 'id' => 'summary-ckeditor', 'rows' => 3])}}
+					{{Form::textarea('content', $post->content, ['class' => 'form-control', 'id' => 'summary-ckeditor', 'rows' => 3])}}
 				</div>
 				<div class="form-group">
 					{{Form::file('post_image')}}

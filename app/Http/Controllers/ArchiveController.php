@@ -36,17 +36,25 @@ class ArchiveController extends Controller
      */
     public function store(Request $request)
     {
+        // validate data
+        $validatedData = $request->validate([
+            'id' => 'required|unique:archive|numeric',
+            'most_points_score' => 'numeric',
+            'highest_week_score' => 'numeric'
+        ]);
 
         // Create new archive item
         $archiveItem = new ArchiveItem;
-        $archiveItem->id = $request->input('year');
+
+        // create documents
+
+        $archiveItem->id = $request->input('id');
         $archiveItem->league_champ_team = $request->input('league_champ_team');
         $archiveItem->most_points_team = $request->input('most_points_team');
-        $archiveItem->most_points_score = $request->input('most_points_value');
+        $archiveItem->most_points_score = $request->input('most_points_score');
         $archiveItem->highest_week_team = $request->input('highest_week_team');
-        $archiveItem->highest_week_score = $request->input('highest_week_value');
+        $archiveItem->highest_week_score = $request->input('highest_week_score');
         $archiveItem->save();
-
         return redirect('/archive')->with('success', 'Archive Created');
     }
 
@@ -83,7 +91,23 @@ class ArchiveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // validate data
+        $validatedData = $request->validate([
+            'most_points_score' => 'numeric',
+            'highest_week_score' => 'numeric'
+        ]);
+
+        $archiveItem = ArchiveItem::find($id);
+
+        // update documents
+
+        $archiveItem->league_champ_team = $request->input('league_champ_team');
+        $archiveItem->most_points_team = $request->input('most_points_team');
+        $archiveItem->most_points_score = $request->input('most_points_score');
+        $archiveItem->highest_week_team = $request->input('highest_week_team');
+        $archiveItem->highest_week_score = $request->input('highest_week_score');
+        $archiveItem->save();
+        return redirect('/archive')->with('success', 'Archive Updated');        
     }
 
     /**
