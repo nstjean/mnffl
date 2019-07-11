@@ -5,7 +5,7 @@ html, body {
   margin: 0;
 }
 a {
-  color: #3490dc;
+  color: $blue;
 }
 a:hover {
   color: #8bd1fc;
@@ -15,7 +15,7 @@ a:hover {
 }
 
 // Posts
-.post-page h1 {
+.post-page h1, .archive-page h1 {
 	margin: 0;
 }
 .post-card {
@@ -34,4 +34,44 @@ a:hover {
 }
 .btn-sm {
 	padding: 0px 5px;
+}
+
+// Archive
+.archive-card {
+	margin: 0;
+	padding: 10px;
+}
+.archive-card>.card {
+	height: 100%;
+}
+.archive-card h3 {
+	margin: 0;
+}
+.archive-card .card-header {
+	background-color: $red;
+	font-weight: bold;
+	color: white;
+}
+
+// Archive Form
+.archive-create-page form {
+	margin-top: 15px;
+}
+.archive-create-page label {
+  margin-bottom: 0;
+  margin-top: 0.5em;
+}
+
+.archive-create-page .form-group {
+	display: flex;
+	flex-direction: row;
+}
+.archive-create-page label {
+  flex: 1 0 120px;
+  max-width: 220px;
+  margin-bottom: 0;
+  margin-top: 0.5em;
+}
+.archive-create-page .form-control {
+  flex: 1 0 220px;
 }

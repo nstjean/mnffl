@@ -10,5 +10,14 @@ class ArchiveItem extends Model
     protected $table = 'archive';
 
     // Primary Key
-    public $primaryKey = 'id_year';
+    public $primaryKey = 'id';
+
+    /**
+     * Get the documents for the archive item.
+     */
+    public function documents()
+    {
+        return $this->hasMany('App\Document');
+    }
+
 }

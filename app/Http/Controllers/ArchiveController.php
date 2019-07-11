@@ -14,7 +14,8 @@ class ArchiveController extends Controller
      */
     public function index()
     {
-        return view('archive.index');
+        $archiveItems = ArchiveItem::all();
+        return view('archive.index')->with('archive', $archiveItems);
     }
 
     /**
@@ -35,7 +36,18 @@ class ArchiveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // Create new archive item
+        $archiveItem = new ArchiveItem;
+        $archiveItem->id = $request->input('year');
+        $archiveItem->league_champ_team = $request->input('league_champ_team');
+        $archiveItem->most_points_team = $request->input('most_points_team');
+        $archiveItem->most_points_score = $request->input('most_points_value');
+        $archiveItem->highest_week_team = $request->input('highest_week_team');
+        $archiveItem->highest_week_score = $request->input('highest_week_value');
+        $archiveItem->save();
+
+        return redirect('/archive')->with('success', 'Archive Created');
     }
 
     /**
