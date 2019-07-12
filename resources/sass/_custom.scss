@@ -1,21 +1,23 @@
-html, body {
-  font-family: 'Nunito', sans-serif;
-  font-weight: normal;
-  height: 100vh;
-  margin: 0;
+html,
+body {
+	font-family: "Nunito", sans-serif;
+	font-weight: normal;
+	height: 100vh;
+	margin: 0;
 }
 a {
-  color: $blue;
+	color: $blue;
 }
 a:hover {
-  color: #8bd1fc;
+	color: #8bd1fc;
 }
 #main-content {
-  margin-top: 30px;
+	margin-top: 30px;
 }
 
 // Posts
-.post-page h1, .archive-page h1 {
+.post-page h1,
+.archive-page h1 {
 	margin: 0;
 }
 .post-card {
@@ -41,7 +43,7 @@ a:hover {
 	margin: 0;
 	padding: 10px;
 }
-.archive-card>.card {
+.archive-card > .card {
 	height: 100%;
 }
 .archive-card h3 {
@@ -68,19 +70,48 @@ archive-card .card-header a:hover {
 	margin-top: 15px;
 }
 .archive-create-page label {
-  margin-bottom: 0;
-  margin-top: 0.5em;
+	margin-bottom: 0;
+	margin-top: 0.5em;
 }
 .archive-create-page .form-group {
 	display: flex;
 	flex-direction: row;
 }
-.archive-create-page label {
-  flex: 1 0 120px;
-  max-width: 220px;
-  margin-bottom: 0;
-  margin-top: 0.5em;
+.archive-create-page .form-group > label {
+	flex: 1 0 120px;
+	max-width: 220px;
+	margin-bottom: 0;
+	margin-top: 0.5em;
+	font-weight: bold;
 }
-.archive-create-page .form-control {
-  flex: 1 0 220px;
+.archive-create-page .form-group > .form-control {
+	flex: 1 0 220px;
+}
+.archive-create-page .form-file-inputs {
+	flex: 1 0 120px;
+	margin-bottom: 0;
+	display: flex;
+	flex-direction: row;
+}
+.archive-create-page .form-file-description {
+	flex: auto;
+}
+.archive-create-page .form-file-delete {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	align-items: center;
+}
+.archive-create-page .form-file-delete .delete-item {
+	margin-left: 0.8em;
+}
+.archive-create-page .documents-label {
+	margin-bottom: 0.5em;
+}
+.archive-create-page .documents-label label {
+	font-weight: bold;
+	margin: 0;
+}
+.archive-create-page .form-file-name {
+	padding-left: 1em;
 }

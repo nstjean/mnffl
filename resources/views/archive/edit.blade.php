@@ -40,21 +40,26 @@
 					{{Form::label('highest_week_value', 'Highest Week - Value:', ['class' => ''])}}
 					{{Form::text('highest_week_score', $archiveItem->highest_week_score, ['class' => 'form-control'])}}
 				</div>
-				<div class="form-group">
+				<div class="documents-label">
 					{{Form::label('documents', 'Documents:', ['class' => ''])}}
-					<div>
-						<ul>
-							@if(count($archiveItem->documents))
-								@foreach($archiveItem->documents as $document)
-									<li>{{$document->description}} - {{$document->file_name}}</li>
-								@endforeach
-							@else
-								<li>No documents uploaded.</li>
-							@endif
-						</ul>
-					</div>
 				</div>
-				<div class="form-group">
+					@if(count($archiveItem->documents))
+						@foreach($archiveItem->documents as $document)
+							<div class="form-group form-group-documents">
+								<label class="form-file-name"><a href="/storage/documents/{{$document->file_name}}">{{$document->getFileNameShort()}}</a></label>
+								<div class="form-file-inputs">
+									{{Form::text('documentNames['.$document->id.']', $document->description, ['class' => 'form-control form-file-description', 'placeholder' => ''])}}
+									<div class="form-file-delete">
+										{{Form::checkbox('documentDeletes['.$document->id.']', '', false, ['class' => 'delete-item'])}}
+										<label class="delete-item">Delete</label>
+									</div>
+								</div>
+							</div>
+						@endforeach
+					@else
+						No documents uploaded.
+					@endif
+				<div class="form-group form-group-upload">
 					{{Form::label('documents', 'Upload New Documents:', ['class' => ''])}}
 					{{Form::file('documents[]', ['multiple' => 'multiple'])}}
 				</div>

@@ -37,7 +37,13 @@
 									<span class="card-label">Documents:</span>
 										<ul>
 											@foreach($archiveItem->documents as $document)
-												<li>{{$document->description}} - {{$document->file_name}}</li>
+												<li>
+													@if($document->description)
+														<a href="storage/documents/{{$document->file_name}}">{{$document->description}}</a>
+													@else
+														<a href="storage/documents/{{$document->file_name}}">{{$document->file_name}}</a>
+													@endif
+												</li>
 											@endforeach
 										</ul>
 									@endif

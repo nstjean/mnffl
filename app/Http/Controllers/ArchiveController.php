@@ -39,9 +39,9 @@ class ArchiveController extends Controller
     {
         // validate data
         $validatedData = $request->validate([
-            'id' => 'required|unique:archive|numeric',
-            'most_points_score' => 'numeric',
-            'highest_week_score' => 'numeric'
+            'id' => 'required|unique:archive|integer',
+            'most_points_score' => 'numeric|sometimes|nullable',
+            'highest_week_score' => 'numeric|sometimes|nullable'
         ]);
 
         $archiveId = $request->input('id');
@@ -59,7 +59,7 @@ class ArchiveController extends Controller
         // retrieve the saved archive item object
         $archiveItemSaved = ArchiveItem::find($archiveId);
 
-        if(count($request->file('documents'))) {
+        if($request->file('documents')) {
             $documentObjects = [];
             // file upload
             $allowedfileExtension=['pdf','jpg','png','gif','doc','docx'];
@@ -126,10 +126,11 @@ class ArchiveController extends Controller
     {
         // validate data
         $validatedData = $request->validate([
-            'most_points_score' => 'numeric',
-            'highest_week_score' => 'numeric'
+            'most_points_score' => 'numeric|sometimes|nullable',
+            'highest_week_score' => 'numeric|sometimes|nullable'
         ]);
 
+        // update the ArchiveItem
         $archiveItem = ArchiveItem::find($id);
         $archiveItem->league_champ_team = $request->input('league_champ_team');
         $archiveItem->most_points_team = $request->input('most_points_team');
@@ -138,8 +139,18 @@ class ArchiveController extends Controller
         $archiveItem->highest_week_score = $request->input('highest_week_score');
         $archiveItem->save();
 
+        // update file descriptions
+        $documentNames = $request->get('documentNames');
+        if($documentNames) {
+            foreach($documentNames as $key => $value) {
+                $document = Document::find($key);
+                $document->description = $value;
+                $document->save();
+            }
+        }
+
         // upload new files
-        if(count($request->file('documents'))) {
+        if($request->file('documents')) {
             $documentObjects = [];
             // file upload
             $allowedfileExtension=['pdf','jpg','png','gif','doc','docx'];
