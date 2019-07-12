@@ -31,7 +31,7 @@ a:hover {
 .card-buttons {
 	font-size: 0.8em;
 }
-.post-page form {
+.form-page form {
 	margin-top: 15px;
 }
 .btn-sm {
@@ -40,6 +40,9 @@ a:hover {
 .edit-photo {
 	margin: auto;
 	margin-bottom: 15px;
+}
+.post-page .card-photo, .post-page .card-content {
+	margin-bottom: 10px;
 }
 
 // Archive

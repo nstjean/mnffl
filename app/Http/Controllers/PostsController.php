@@ -57,7 +57,7 @@ class PostsController extends Controller
         
         // Create post
         $post = new Post;
-        if($post->content) {
+        if($request->input('content')) {
             $post->content = $request->input('content');
         } else {
             $post->content = "";

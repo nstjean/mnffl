@@ -19,14 +19,14 @@
 					<div class="card post-card">
 						<div class="card-body">
 							@if($post->image_name)
-								<div class="card-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid img-thumbnail"></div>
+								<div class="card-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid"></div>
 							@endif
 							<div class="card-content">{{$post->content}}</div>
 							<div class="card-buttons d-flex flex-row align-items-end">
 								<div class="card-small">Posted on {{ $post->created_at->format('F j, Y \a\t h:ma') }}</div>
 								<div class="mr-auto"><a href="/posts/{{$post->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
 								<div class="">
-									{!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete'])!!}
+									{!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-form'])!!}
 										{{Form::hidden('_method', 'DELETE')}}
 										{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger'])}}
 									{!!Form::close()!!}
