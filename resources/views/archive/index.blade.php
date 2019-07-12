@@ -41,7 +41,7 @@
 													@if($document->description)
 														<a href="storage/documents/{{$document->file_name}}">{{$document->description}}</a>
 													@else
-														<a href="storage/documents/{{$document->file_name}}">{{$document->file_name}}</a>
+														<a href="storage/documents/{{$document->file_name}}">{{$document->getFileNameShort()}}</a>
 													@endif
 												</li>
 											@endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\ArchiveItem;
 use App\Document;
 
@@ -141,11 +142,22 @@ class ArchiveController extends Controller
 
         // update file descriptions
         $documentNames = $request->get('documentNames');
+        $documentDeletes = $request->get('documentDeletes');
         if($documentNames) {
             foreach($documentNames as $key => $value) {
                 $document = Document::find($key);
                 $document->description = $value;
                 $document->save();
+
+                // delete if marked for deletion
+                if($documentDeletes) {
+                    if(array_key_exists($key, $documentDeletes)) {
+                        if($documentDeletes[$key] == "true") {
+                            Storage::delete('public/documents/'.$document->file_name);
+                            $document->delete();
+                        }
+                    }
+                }
             }
         }
 
@@ -178,7 +190,7 @@ class ArchiveController extends Controller
             return redirect('archive/'.$id.'/edit')->with('success', 'Files Uploaded');
         } else {
             // if no uploaded files, redirect to archive index
-            return redirect('/archive')->with('success', 'Archive Created');
+            return redirect('/archive')->with('success', 'Archive Updated');
         }     
     }
 
@@ -190,11 +202,15 @@ class ArchiveController extends Controller
      */
     public function destroy($id)
     {
-        // Delete post
         $archiveItem = ArchiveItem::find($id);
 
-        // delete documents
-        
+        // delete associated documents
+        $documents = $archiveItem->documents;
+        foreach($documents as $document) {
+            Storage::delete('public/documents/'.$document->file_name);
+            $document->delete();
+        }
+
         $archiveItem->delete();
         return redirect('/archive')->with('success', 'Archive Year Deleted');
     }

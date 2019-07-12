@@ -10785,3 +10785,8 @@ archive-card .card-header a:hover {
   padding-left: 1em;
 }
 
+.archive-create-page .no-documents {
+  padding-left: 1em;
+  margin-bottom: 2em;
+}
+

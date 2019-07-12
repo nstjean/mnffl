@@ -50,14 +50,17 @@
 								<div class="form-file-inputs">
 									{{Form::text('documentNames['.$document->id.']', $document->description, ['class' => 'form-control form-file-description', 'placeholder' => ''])}}
 									<div class="form-file-delete">
-										{{Form::checkbox('documentDeletes['.$document->id.']', '', false, ['class' => 'delete-item'])}}
+										{{Form::checkbox('documentDeletes['.$document->id.']', 'true', false, ['class' => 'delete-item'])}}
 										<label class="delete-item">Delete</label>
 									</div>
 								</div>
 							</div>
 						@endforeach
 					@else
-						No documents uploaded.
+							<div class="form-group form-group-documents">
+								<label class="form-file-name"></label>
+								<div class="form-file-inputs">No documents uploaded.</div>
+							</div>
 					@endif
 				<div class="form-group form-group-upload">
 					{{Form::label('documents', 'Upload New Documents:', ['class' => ''])}}
