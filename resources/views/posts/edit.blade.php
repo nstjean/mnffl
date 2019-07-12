@@ -14,13 +14,14 @@
 					<a href="/posts/" class="btn btn-secondary">Go Back</a>
 				</div>
 			</div>
-
+			
 			{!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+			@if($post->image_name)
+				<div class="edit-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid img-thumbnail"></div>
+				{{Form::hidden('post_image', 'true')}}
+			@endif
 				<div class="form-group">
 					{{Form::textarea('content', $post->content, ['class' => 'form-control', 'id' => 'summary-ckeditor', 'rows' => 3])}}
-				</div>
-				<div class="form-group">
-					{{Form::file('post_image')}}
 				</div>
 				{{Form::hidden('_method','PUT')}}
 				{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}

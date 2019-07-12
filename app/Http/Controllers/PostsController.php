@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostsController extends Controller
 {
@@ -39,20 +41,18 @@ class PostsController extends Controller
         // validation
         $validatedData = $request->validate([
             'content' => 'required_without:post_image',
+            'post_image' => 'sometimes|image'
         ]);
 
         // file upload
+        $fileNameToStore = '';
         if($request->hasFile('post_image')) {
-            // get filename.ext
-            $fileNameWithExt = $request->file('post_image')->getClientOriginalName();
-            // get filename
-            $extention = $request->file('post_image')->getClientOriginalExtension();
-            // new filename
-            $fileNameToStore = "img_".time().'.'.$extention;
-            // upload
-            $path = $request->file('post_image')->storeAs('public/uploaded_images', $fileNameToStore);
-        } else {
-            $fileNameToStore = '';
+            $image = $request->file('post_image');
+            $fileNameWithExt = $image->getClientOriginalName();
+            $extension = $image->getClientOriginalExtension();
+            $fileNameToStore = "img_".time().'.'.$extension;
+            $path = public_path('storage/uploaded_images/' . $fileNameToStore);
+            Image::make($image->getRealPath())->resize(800, 500)->save($path);
         }
         
         // Create post
@@ -107,27 +107,12 @@ class PostsController extends Controller
             'content' => 'required_without:post_image',
         ]);
 
-        // file upload
-        if($request->hasFile('post_image')) {
-            // get filename.ext
-            $fileNameWithExt = $request->file('post_image')->getClientOriginalName();
-            // get filename
-            $extention = $request->file('post_image')->getClientOriginalExtension();
-            // new filename
-            $fileNameToStore = "img_".time().'.'.$extention;
-            // upload
-            $path = $request->file('post_image')->storeAs('public/uploaded_images', $fileNameToStore);
-        }
-        
-        // Create post
+        // Update post
         $post = Post::find($id);
         if($request->input('content')) {
             $post->content = $request->input('content');
         } else {
             $post->content = "";
-        }
-        if($request->hasFile('cover_image')) {
-            $post->image_name = $fileNameToStore;
         }
         $post->save();
 
@@ -145,8 +130,8 @@ class PostsController extends Controller
         // Delete post
         $post = Post::find($id);
         // delete photo
-        if($post->post_image != "") {
-            Storage::delete('public/cover_images/'.$post->post_image);
+        if($post->image_name) {
+            Storage::delete('public/uploaded_images/'.$post->image_name);
         }
         $post->delete();
         return redirect('/posts')->with('success', 'Post Deleted');

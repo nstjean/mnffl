@@ -18,6 +18,9 @@
 				@foreach($posts as $post)
 					<div class="card post-card">
 						<div class="card-body">
+							@if($post->image_name)
+								<div class="card-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid img-thumbnail"></div>
+							@endif
 							<div class="card-content">{{$post->content}}</div>
 							<div class="card-buttons d-flex flex-row align-items-end">
 								<div class="card-small">Posted on {{ $post->created_at->format('F j, Y \a\t h:ma') }}</div>

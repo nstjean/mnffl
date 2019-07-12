@@ -10692,6 +10692,11 @@ a:hover {
   padding: 0px 5px;
 }
 
+.edit-photo {
+  margin: auto;
+  margin-bottom: 15px;
+}
+
 .archive-card {
   margin: 0;
   padding: 10px;
