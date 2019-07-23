@@ -9,16 +9,13 @@
 
     <title>{{ config('app.name', 'MNFFL') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <body>
+    <div id="app">
 
-    @include('inc.navbar')
+        @include('inc.navbar')
 
         <main class="container" id="main-content">
             
@@ -28,10 +25,15 @@
 
         </main>
 
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}"></script>
+        
         <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
         <script>
             CKEDITOR.replace( 'summary-ckeditor' );
         </script>
-    </body>
+
+    </div>
 </body>
 </html>
