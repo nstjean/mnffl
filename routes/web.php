@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::resource('posts', 'PostsController')->middleware('auth');
 Route::resource('archive', 'ArchiveController');
+Route::resource('users', 'UsersController');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard')->middleware('auth');

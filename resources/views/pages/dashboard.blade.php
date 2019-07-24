@@ -18,7 +18,8 @@
 					<h3>Administrator Dashboard</h3>
 				</div>
 				<div class="card-body">
-					Stuff
+					<a href="" class="btn btn-sm btn-primary">Add New User</a>
+					<a href="" class="btn btn-sm btn-primary">Edit Users</a>
 				</div>
 			</section>
 			@endif
