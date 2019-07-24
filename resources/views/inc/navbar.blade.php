@@ -33,8 +33,11 @@
                   <a class="dropdown-item" href="{{ url('/dashboard/') }}">
                       Dashboard
                   </a>
-                  <a class="dropdown-item" href="{{ url('/profile/'.Auth::user()->id.'/edit/') }}">
+                  <a class="dropdown-item" href="{{ url('/profile/edit/') }}">
                       Edit Profile
+                  </a>
+                  <a class="dropdown-item" href="{{ url('/password/change/') }}">
+                      Change Password
                   </a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ route('logout') }}"

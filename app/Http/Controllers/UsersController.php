@@ -53,7 +53,18 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the currently logged in user.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editLoggedIn()
+    {
+        return view('users.edit');
+    }
+
+    /**
+     * Show the form for editing users by id.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

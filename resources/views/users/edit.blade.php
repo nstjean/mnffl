@@ -2,6 +2,10 @@
 
 @section('content')
 
+	@empty($user)
+		{{! $user = Auth::user() }}
+	@endempty
+
 	<div class="row post-page form-page">
 		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
 		<div class="col-lg-8 col-md-10 col-sm-12 col-12">
@@ -11,7 +15,7 @@
 					<h1>Edit User Info</h1>
 				</div>
 				<div class="">
-					<a href="/users/" class="btn btn-secondary">Go Back</a>
+					<a href="{{ url('/users/') }}" class="btn btn-secondary">Go Back</a>
 				</div>
 			</div>
 			
