@@ -10,6 +10,15 @@ use App\Document;
 class ArchiveController extends Controller
 {
     /**
+     * Enforce middleware.
+     */
+    public function __construct()
+    {
+        $this->middleware('admin', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['only' => ['index', 'show']]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

@@ -42,17 +42,19 @@
 									</ul>
 								@endif
 							</div>
-							<div class="card-buttons align-self-stretch">
-								<div class="d-flex flex-row align-items-start" style="">
-									<div class="mr-auto"><a href="/archive/{{$archiveItem->id}}/edit" class="btn btn-primary">Edit</a></div>
-									<div class="">
-										{!!Form::open(['action' => ['ArchiveController@destroy', $archiveItem->id], 'method' => 'POST', 'class' => 'delete'])!!}
-											{{Form::hidden('_method', 'DELETE')}}
-											{{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-										{!!Form::close()!!}
+							@if(Auth::user()->isAdmin())
+								<div class="card-buttons align-self-stretch">
+									<div class="d-flex flex-row align-items-start" style="">
+										<div class="mr-auto"><a href="/archive/{{$archiveItem->id}}/edit" class="btn btn-primary">Edit</a></div>
+										<div class="">
+											{!!Form::open(['action' => ['ArchiveController@destroy', $archiveItem->id], 'method' => 'POST', 'class' => 'delete'])!!}
+												{{Form::hidden('_method', 'DELETE')}}
+												{{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+											{!!Form::close()!!}
+										</div>
 									</div>
 								</div>
-							</div>
+							@endif
 						</div>
 					</div>
 				</div>
