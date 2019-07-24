@@ -16,7 +16,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'is_admin', 'team_name', 'profile_pic'
+    ];
+
+    /**
+     * The attributes with a default value.
+     *
+     * @var array
+     */
+    protected $attributes = [
+       'is_admin' => 0,
     ];
 
     /**

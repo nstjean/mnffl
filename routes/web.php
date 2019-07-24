@@ -15,5 +15,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::resource('posts', 'PostsController');
-Route::resource('archive', 'ArchiveController');
+Route::resource('posts', 'PostsController')->middleware('auth');
+Route::resource('archive', 'ArchiveController')->middleware('auth');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
