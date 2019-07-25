@@ -38,6 +38,7 @@
                             <div class="col-md-6">
                                 {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                             </div>
+                        </div>
                     {!! Form::close() !!}
                 </div>
             </div>

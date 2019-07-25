@@ -37,7 +37,7 @@
 					{{Form::label('is_admin', 'Is Administrator:', ['class' => ''])}}
 					{{Form::checkbox('is_admin', $user->is_admin, ['class' => 'form-control'])}}
 				</div>
-				[reset password]
+				
 				{{Form::hidden('_method','PUT')}}
 				{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
 			{!! Form::close() !!}

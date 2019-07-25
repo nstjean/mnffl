@@ -4,10 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use App\User;
+use Auth;
 
 class UsersController extends Controller
 {
+    /**
+     * Enforce middleware.
+     */
+    public function __construct()
+    {
+        $this->middleware('admin', ['except' => ['editLoggedIn', 'update']]);
+        $this->middleware('auth', ['only' => ['editLoggedIn', 'update']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +37,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-    	//
+    	return view('users.create');
     }
 
     /**
@@ -37,7 +48,25 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate data
+        $validatedData = $request->validate([
+            'new_name' => 'required|string|max:255',
+            'new_email' => 'required|email|string|max:255|unique:users,email',
+            'team_name' => 'sometimes|nullable|string|max:255',
+            'profile_pic' => 'sometimes|nullable|string|max:255',
+            'password' => 'required|string|min:6|confirmed'
+        ]);
+
+        // update the User
+        $user = new User;
+        $user->name = $request->input('new_name');
+        $user->team_name = $request->input('team_name');
+        $user->email = $request->input('new_email');
+        $user->password = Hash::make($request->input('password'));
+        //$user->profile_pic = $request->input('profile_pic');
+        $user->save();
+
+        return redirect('/users')->with('success', 'New User Created');
     }
 
     /**
@@ -84,18 +113,22 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // check user is either admin or owner
+        if(!Auth::user()->isAdmin() && Auth::user()->id != $id) {
+            return redirect('/home')->with('error', 'Incorrect permissions.');
+        }
+
         // validate data
         $validatedData = $request->validate([
-            'name' => 'required',
-            'team_name' => 'sometimes|nullable',
-            'profile_pic' => 'sometimes|nullable'
+            'name' => 'required|string|max:255',
+            'team_name' => 'sometimes|nullable|string|max:255',
+            'profile_pic' => 'sometimes|nullable|string|max:255'
         ]);
 
         // update the User
         $user = User::find($id);
         $user->name = $request->input('name');
         $user->team_name = $request->input('team_name');
-        $user->profile_pic = $request->input('profile_pic');
         $user->is_admin = $request->input('is_admin');
         $user->save();
 
