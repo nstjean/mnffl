@@ -20,26 +20,43 @@
 			</div>
 			
 			{!! Form::open(['action' => ['UsersController@update', $user->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-				<div class="form-group">
-					{{Form::label('email', 'Email:', ['class' => ''])}}
-					{{Form::text('email', $user->email, ['class' => 'form-control', 'disabled' => 'disabled'])}}
-				</div>
-				<div class="form-group">
-					{{Form::label('name', 'Name:', ['class' => ''])}}
-					{{Form::text('name', $user->name, ['class' => 'form-control'])}}
-				</div>
-				<div class="form-group">
-					{{Form::label('team_name', 'Team Name:', ['class' => ''])}}
-					{{Form::text('team_name', $user->team_name, ['class' => 'form-control'])}}
-				</div>
-				[profile pic]
-				<div class="form-group">
-					{{Form::label('is_admin', 'Is Administrator:', ['class' => ''])}}
-					{{Form::checkbox('is_admin', $user->is_admin, ['class' => 'form-control'])}}
+                @csrf
+
+                <div class="form-group row">
+                    {{Form::label('name', 'Name:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
+                    <div class="col-md-6">
+                        {{Form::text('name', $user->name, ['class' => 'form-control'])}}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    {{Form::label('email', 'Email:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
+                    <div class="col-md-6">
+                        {{Form::text('email', $user->email, ['class' => 'form-control', 'disabled' => 'disabled'])}}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    {{Form::label('team_name', 'Team Name:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
+                    <div class="col-md-6">
+                        {{Form::text('team_name', $user->team_name, ['class' => 'form-control'])}}
+                    </div>
+                </div>
+
+				<div class="form-group row">
+                    {{Form::label('is_admin', 'Is Administrator:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
+                    <div class="col-md-6">
+						{{Form::checkbox('is_admin', '1', $user->is_admin ? true : false)}}
+					</div>
 				</div>
 				
-				{{Form::hidden('_method','PUT')}}
-				{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-6">
+						{{Form::hidden('_method','PUT')}}
+                        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                    </div>
+                </div>
 			{!! Form::close() !!}
 
 		</div>

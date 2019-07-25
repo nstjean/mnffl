@@ -129,7 +129,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->name = $request->input('name');
         $user->team_name = $request->input('team_name');
-        $user->is_admin = $request->input('is_admin');
+        $user->is_admin = $request->input('is_admin') ? '1' : '0';
         $user->save();
 
 		return redirect('/users')->with('success', 'User Updated');
