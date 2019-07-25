@@ -55,7 +55,7 @@
 										<div class="d-flex flex-row align-items-start" style="">
 											<div class="mr-auto"><a href="/archive/{{$archiveItem->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
 											<div class="">
-												{!!Form::open(['action' => ['ArchiveController@destroy', $archiveItem->id], 'method' => 'POST', 'class' => 'delete'])!!}
+												{!!Form::open(['action' => ['ArchiveController@destroy', $archiveItem->id], 'method' => 'POST', 'class' => 'delete-form'])!!}
 													{{Form::hidden('_method', 'DELETE')}}
 													{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger'])}}
 												{!!Form::close()!!}
@@ -73,11 +73,5 @@
 		@endif
 
 	</div>
-
-	<script>
-	    $(".delete").on("submit", function(){
-	        return confirm("Delete this archive year?");
-	    });
-	</script>
-
+	
 @endsection

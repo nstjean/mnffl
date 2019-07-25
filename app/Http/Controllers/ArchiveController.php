@@ -213,14 +213,14 @@ class ArchiveController extends Controller
     {
         $archiveItem = ArchiveItem::find($id);
 
-        // delete associated documents
-        $documents = $archiveItem->documents;
-        foreach($documents as $document) {
-            Storage::delete('public/documents/'.$document->file_name);
-            $document->delete();
-        }
+        // // delete associated documents
+        // $documents = $archiveItem->documents;
+        // foreach($documents as $document) {
+        //     Storage::delete('public/documents/'.$document->file_name);
+        //     $document->delete();
+        // }
 
-        $archiveItem->delete();
+        // $archiveItem->delete();
         return redirect('/archive')->with('success', 'Archive Year Deleted');
     }
 }

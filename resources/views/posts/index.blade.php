@@ -44,10 +44,4 @@
 		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
 	</div>
 
-	<script>
-	    $(".delete").on("submit", function(){
-	        return confirm("Delete this post?");
-	    });
-	</script>
-
 @endsection

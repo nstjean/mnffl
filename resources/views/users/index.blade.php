@@ -26,7 +26,7 @@
 								<div class="col-md-1 col-sm-6 col-12">
 									{!!Form::open(['action' => ['UsersController@destroy', $user->id], 'method' => 'user', 'class' => 'delete-form'])!!}
 										{{Form::hidden('_method', 'DELETE')}}
-										{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger'])}}
+										{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger delete'])}}
 									{!!Form::close()!!}
 								</div>
 							</div>
@@ -39,11 +39,5 @@
 
 		</div>
 	</div>
-
-	<script>
-	    $(".delete").on("submit", function(){
-	        return confirm("Permanently delete this user?");
-	    });
-	</script>
 
 @endsection
