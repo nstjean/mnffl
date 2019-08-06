@@ -12,4 +12,12 @@ class Post extends Model
     // Primary Key
     public $primaryKey = 'id';
 
+    /**
+	* Get the user that owns this post
+	*/
+	public function user()
+	{
+	    return $this->belongsTo('App\User');
+	}
+
 }

@@ -14,6 +14,7 @@ class PagesController extends Controller
      */
     public function dashboard()
     {
-        return view('pages.dashboard');
+    	$posts = auth()->user()->posts()->orderBy('created_at', 'desc')->paginate(20);
+        return view('pages.dashboard')->with('posts', $posts);
     }
 }

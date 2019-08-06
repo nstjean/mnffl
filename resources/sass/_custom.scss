@@ -15,7 +15,9 @@ a:hover {
 	margin-top: 30px;
 }
 
-// Posts
+/*
+ *	POSTS
+ */
 .post-page h1,
 .archive-page h1 {
 	margin: 0;
@@ -45,7 +47,9 @@ a:hover {
 	margin-bottom: 10px;
 }
 
-// Archive
+/*
+ *	ARCHIVE
+ */
 .archive-card {
 	margin: 0;
 	padding: 10px;
@@ -72,7 +76,9 @@ archive-card .card-header a:hover {
 	font-weight: bold;
 }
 
-// Archive Form
+/*
+ *	ARCHIVE FORM
+ */
 .archive-create-page form {
 	margin-top: 15px;
 }
@@ -126,3 +132,7 @@ archive-card .card-header a:hover {
 	padding-left: 1em;
 	margin-bottom: 2em;
 }
+
+/*
+ *	DASHBOARD
+ */
