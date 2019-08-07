@@ -10816,3 +10816,7 @@ archive-card .card-header a:hover {
  *	DASHBOARD
  */
 
+.card-header h3 {
+  margin: 0;
+}
+

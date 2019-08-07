@@ -18,8 +18,8 @@
 					<h3>Administrator Dashboard</h3>
 				</div>
 				<div class="card-body">
-					<a href="{{ url('/users/create/') }}" class="btn btn-sm btn-primary">Add New User</a>
-					<a href="{{ url('/users/') }}" class="btn btn-sm btn-primary">Edit Users</a>
+					<a href="{{ url('/users/') }}" class="btn btn-primary">Edit Users</a>
+					<a href="{{ url('/users/create/') }}" class="btn btn-primary ml-3">Add New User</a>
 				</div>
 			</section>
 			@endif
@@ -48,7 +48,8 @@
 							<div class="info col-md-9 col-sm-6">{{ Auth::user()->team_name }}</div>
 						</div>
 						<div>
-							<a href="" class="btn btn-sm btn-primary">Edit My Profile</a>
+							<a href="" class="btn btn-primary">Edit My Profile</a>
+							<a href="" class="btn btn-primary ml-3">Change Password</a>
 						</div>
 					</div>
 				</div>
@@ -63,9 +64,16 @@
 						@if(count($posts)>0)
 							@foreach($posts as $post)
 								<li class="list-group-item">
-									<div class="card-dashboard-list-item row">
-										<div class="col-md-2 col-sm-4 col-12">{{ $post->created_at->format('m/j/y') }}</div>
-										<div class="col-md-10 col-sm-8 col-12">{{ substr($post->content, 0, 40) }}</div>
+									<div class="card-dashboard-list-item row" style="width: 100%">
+											<div class="col-md-2 col-sm-4 col-12">{{ $post->created_at->format('m/j/y') }}</div>
+											<div class="col-md-8 col-sm-8 col-12">{{ substr($post->content, 0, 40) }}</div>
+										<div class="col-md-1 col-sm-6 col-6"><a href="/posts/{{$post->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
+										<div class="col-md-1 col-sm-6 col-6">
+											{!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-form'])!!}
+												{{Form::hidden('_method', 'DELETE')}}
+												{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger'])}}
+											{!!Form::close()!!}
+										</div>
 									</div>
 								</li>
 							@endforeach

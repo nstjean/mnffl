@@ -11,6 +11,9 @@
 
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/7fe5eb3b95.js"></script>
 </head>
 <body>
     <div id="app">
