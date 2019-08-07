@@ -122,7 +122,7 @@ class UsersController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'team_name' => 'sometimes|nullable|string|max:255',
-            'profile_pic' => 'sometimes|nullable|string|max:255'
+            'profile_pic' => 'sometimes|nullable'
         ]);
 
         // update the User
@@ -130,8 +130,28 @@ class UsersController extends Controller
         $user->name = $request->input('name');
         $user->team_name = $request->input('team_name');
         $user->is_admin = $request->input('is_admin') ? '1' : '0';
-        $user->save();
 
+        // if a file was uploaded
+        if($request->file('profile_pic')) {
+            // file upload
+            $allowedfileExtension=['jpg','gif'];
+            $file = $request->file('profile_pic');
+            $extension = $file->getClientOriginalExtension();
+            $fileNameToStore = "profile_".$id.'.'.$extension;
+            $fileWithPath = 'public/profile_pics'.$fileNameToStore;
+            if(in_array($extension,$allowedfileExtension)) {
+                // delete existing file
+                if(Storage::exists($fileWithPath)) {
+                    Storage::delete($fileWithPath);
+                }
+                // save new file in storage
+                $path = $file->storeAs('public/profile_pics', $fileNameToStore);
+                // save file name in user
+                $user->profile_pic = $fileNameToStore;
+            }
+        }
+
+        $user->save();
 		return redirect('/users')->with('success', 'User Updated');
     }
 

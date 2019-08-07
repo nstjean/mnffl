@@ -44,15 +44,31 @@
                 </div>
 
                 @if(Auth::user()->isAdmin())
-				<div class="form-group row">
-                    {{Form::label('is_admin', 'Is Administrator:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
-                    <div class="col-md-6">
-						{{Form::checkbox('is_admin', '1', $user->is_admin ? true : false)}}
-					</div>
-				</div>
+    				<div class="form-group row">
+                        {{Form::label('is_admin', 'Is Administrator:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
+                        <div class="col-md-6">
+    						{{Form::checkbox('is_admin', '1', $user->is_admin ? true : false)}}
+    					</div>
+    				</div>
                 @endif
+
+                <div class="form-group row">
+                    {{Form::label('profile_pic', 'Current Profile:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
+                    <div class="col-md-6">
+                        @if(Auth::user()->profile_pic)
+                            <img src="{{ url('/storage/profile_pics/'.Auth::user()->profile_pic) }}" class="profile-pic img-fluid">
+                        @endif
+                    </div>
+                </div>
 				
-                <div class="row">
+                <div class="form-group row">
+                    {{Form::label('profile_pic', 'Upload Profile Pic:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
+                    <div class="col-md-6">
+                        {{Form::file('profile_pic')}}
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <div class="col-md-4"></div>
                     <div class="col-md-6">
 						{{Form::hidden('_method','PUT')}}

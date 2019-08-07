@@ -31,7 +31,7 @@
 				<div class="card-body row">
 					<div class="col-md-2">
 						@if(Auth::user()->profile_pic)
-							<img src="{{ Auth::user()->profile_pic }}" class="profile-pic">
+							<img src="{{ url('/storage/profile_pics/'.Auth::user()->profile_pic) }}" class="profile-pic img-fluid">
 						@endif
 					</div>
 					<div class="col-md-10">

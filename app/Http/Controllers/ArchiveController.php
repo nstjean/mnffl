@@ -69,6 +69,7 @@ class ArchiveController extends Controller
         // retrieve the saved archive item object
         $archiveItemSaved = ArchiveItem::find($archiveId);
 
+        // upload files
         if($request->file('documents')) {
             $documentObjects = [];
             // file upload
