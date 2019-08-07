@@ -48,8 +48,8 @@
 							<div class="info col-md-9 col-sm-6">{{ Auth::user()->team_name }}</div>
 						</div>
 						<div>
-							<a href="" class="btn btn-primary">Edit My Profile</a>
-							<a href="" class="btn btn-primary ml-3">Change Password</a>
+							<a href="{{ url('/profile/edit/') }}" class="btn btn-primary">Edit My Profile</a>
+							<a href="{{ url('/password/change/') }}" class="btn btn-primary ml-3">Change Password</a>
 						</div>
 					</div>
 				</div>
