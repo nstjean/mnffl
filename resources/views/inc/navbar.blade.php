@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="/">{{ config('app.name', 'MNFFL') }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,14 +8,17 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
       </li>
-      @if(auth::check())
+      @auth
         <li class="nav-item">
           <a class="nav-link" href="/archive">Archive</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/posts">Posts</a>
         </li>
-      @endif
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/dashboard/') }}">Dashboard</a>
+        </li>
+      @endauth
     </ul>
     <div class="dropdown-divider"></div>
     <!-- Right Side Of Navbar -->
@@ -25,7 +28,6 @@
           <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
           <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
       @else
-          <li><a class="nav-link" href="{{ url('/dashboard/') }}">Dashboard</a></li>
           <li class="nav-item dropdown">
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                   {{ Auth::user()->name }} <span class="caret"></span>

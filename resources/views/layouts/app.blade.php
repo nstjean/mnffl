@@ -20,6 +20,9 @@
 
         @include('inc.navbar')
 
+        <div id="background-image">
+        </div>
+
         <main class="container" id="main-content">
             
             @include('inc.messages')
@@ -28,6 +31,8 @@
 
         </main>
 
+        <footer style="height: 100px">
+        </footer>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>

@@ -1,19 +1,89 @@
+
+/*
+ *	************** CUSTOM STYLE SHEET ******************
+ */
 html,
 body {
-	font-family: "Nunito", sans-serif;
-	font-weight: normal;
+	font: $font-size-base $font-family-sans-serif;
 	height: 100vh;
 	margin: 0;
+	padding: 0;
+	background-color: $background-color;
 }
+/*#app {
+	background-color: $background-color;
+	background-image:
+		linear-gradient(
+		  to top,
+	      $background-color, 
+	      $background-end
+	    ),
+    	url(/storage/images/grass-nofade.jpg);
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}*/
 a {
-	color: $blue;
+	color: $primary;
 }
 a:hover {
-	color: #8bd1fc;
+	color: $primary;
+}
+#background-image{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image:
+/*		linear-gradient(
+		  to top,
+	      $background-color, 
+	      $background-end
+	    ),*/
+    	url(/storage/images/grass-nofade.jpg);
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 1;
 }
 #main-content {
-	margin-top: 30px;
+	position: relative;
+	padding-top: 60px;
+	z-index: 500;
 }
+h1 {
+	font-size: 3.35em;
+	color: $white;
+	-webkit-filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.9));
+	-moz-filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.9));
+	filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.9));
+}
+
+
+/*
+ *	NAVBAR
+ */
+ .bg-dark {
+ 	background-color: $black !important;
+ }
+ .navbar-dark .navbar-brand {
+ 	color: $primary;
+ }
+ .navbar-dark .navbar-nav .nav-link {
+ 	color: $white;
+ 	text-transform: uppercase;
+ }
+ .navbar-dark .navbar-nav .nav-link:hover {
+ 	color: $primary;
+ }
+ @media (min-width: 768px) {
+	.navbar-expand-md .navbar-nav .nav-link {
+	    padding-right: 1.0rem;
+	    padding-left: 1.0rem;
+	}
+}
+
 
 /*
  *	POSTS
@@ -26,12 +96,13 @@ a:hover {
 	margin: 10px 0;
 }
 .card-small {
-	font-size: 0.8em;
-	color: grey;
+	font-size: 0.9em;
+	color: $grey-600;
 	margin-right: 10px;
 }
 .card-buttons {
 	font-size: 0.8em;
+	text-transform: uppercase;
 }
 .form-page form {
 	margin-top: 15px;
@@ -61,7 +132,7 @@ a:hover {
 	margin: 0;
 }
 .archive-card .card-header {
-	background-color: $red;
+	background-color: $primary;
 	font-weight: bold;
 	color: white;
 }

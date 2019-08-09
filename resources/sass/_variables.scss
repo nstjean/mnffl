@@ -1,19 +1,33 @@
 // Body
-$body-bg: #f8fafc;
+$body-bg:                   rgb(40, 40, 40);
+$body-color:                rgb(220, 220, 220);
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+// Bootstrap Components
+$border-radius:               .5rem;
+
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$background-color: rgb(40, 40, 40, 1);
+$primary: #ed641a;
+$link-hover-color: darken(#ed641a, 30%);
+
+// Bootstrap Pagination
+$pagination-color:                  #fff;
+$pagination-bg:                     #000;
+$pagination-border-width:           0;
+
+$pagination-active-color:           #fff;
+$pagination-active-border-color:    0;
+
+$pagination-disabled-color:         #6c757d;
+$pagination-disabled-bg:            #000;
+$pagination-disabled-border-color:  0;
+
+// Boostrap Cards
+$card-bg:                           #000;
+$card-border-width:                 0;
+$card-border-color:                 rgb(150, 150, 150);
