@@ -11,17 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index')->name('home')->middleware('auth_check');
 
-Route::resource('posts', 'PostsController')->middleware('auth');
+Route::resource('posts', 'PostsController');
 Route::resource('archive', 'ArchiveController');
 Route::resource('users', 'UsersController');
 Route::get('/profile/edit', 'UsersController@editLoggedIn')->middleware('auth');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard')->middleware('auth');
 
 Route::get('/password/change', 'ChangePasswordController@showChangePasswordForm');

@@ -10748,13 +10748,14 @@ h1 {
 }
 
 .card-small {
-  font-size: 0.8em;
-  color: grey;
+  font-size: 0.9em;
+  color: #6c757d;
   margin-right: 10px;
 }
 
 .card-buttons {
   font-size: 0.8em;
+  text-transform: uppercase;
 }
 
 .form-page form {
