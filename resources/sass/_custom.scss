@@ -326,9 +326,18 @@ archive-card .card-header a:hover {
 /*
  *	DASHBOARD
  */
-.card-header h3 {
+.dashboard-page .card-header h3 {
 	margin: 0;
 }
+.dashboard-page .list-group-item {
+	padding: 0;
+}
+.card-dashboard-list-item,
+.card-dashboard-list-item>a {
+	width: 100%;
+	margin: 0;
+}
+
 
 /*
  *	USERS
@@ -339,28 +348,34 @@ archive-card .card-header a:hover {
 .user-page .list-group-item {
 	padding: 0;
 }
-.user-page a.clickable-row {
+.user-page .card-user-list-item {
+	display: flex;
+	align-items: center;
+}
+
+
+
+/*
+ *	TABLES
+ */
+.clickable-row{
+	flex: 1 1 100%;
+}
+a.clickable-row {
 	color: $white;
 	text-decoration: none;
 	margin: 0;
 	padding: 0.7em;
 }
-.user-page a.clickable-row:hover {
+a.clickable-row:hover {
 	color: $white;
 	text-decoration: none;
 	background-color: $gray-900;
 }
-.user-page .card-user-list-item {
-	display: flex;
-	align-items: center;
-}
-.user-page .clickable-row{
-	flex: 1 1 100%;
-}
-.user-page .trash-item {
+.trash-item {
 	flex: 0 0 35px;
 }
-.user-page .trash-item button {
+.trash-item button {
 	font-size: 20px;
 	padding: 0;
 	margin: 0;
@@ -370,6 +385,6 @@ archive-card .card-header a:hover {
 	padding: 0.1em 0.3em;
 	border-radius: 5px;
 }
-.user-page .trash-item button:hover {
+ .trash-item button:hover {
 	background-color: $primary;
 }
