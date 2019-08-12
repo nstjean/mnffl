@@ -10756,6 +10756,10 @@ h1 {
   font-weight: bold;
 }
 
+.navbar-dark .navbar-brand:hover {
+  color: #000;
+}
+
 .navbar-dark .brand-left {
   flex: 0 0 20px;
   background-color: #ed641a;
@@ -10967,6 +10971,14 @@ archive-card .card-header a:hover {
  */
 
 .card-header h3 {
+  margin: 0;
+}
+
+/*
+ *	USERS
+ */
+
+.user-page h1 {
   margin: 0;
 }
 

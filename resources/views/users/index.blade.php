@@ -5,7 +5,7 @@
 	<div class="row user-page">
 		<div class="col-12">
 
-			<div class="d-flex flex-row align-items-end">
+			<div class="d-flex flex-row align-items-center">
 				<div class="mr-auto">
 					<h1>All Users</h1>
 				</div>

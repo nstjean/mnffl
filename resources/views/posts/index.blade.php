@@ -7,8 +7,9 @@
 		<div class="col-lg-8 col-md-10 col-sm-12 col-12">
 
 			<!-- PAGE TOP / BUTTON -->
-			<div class="d-flex flex-row align-items-end">
+			<div class="d-flex flex-row align-items-center">
 				<div class="mr-auto">
+					<h1>Posts</h1>
 				</div>
 				<div class="">
 					<a href="/posts/create" class="btn btn-primary">Create A Post</a>

@@ -104,6 +104,9 @@ h1 {
  	font-size: 28px;
  	font-weight: bold;
 }
+.navbar-dark .navbar-brand:hover {
+	color: $black;
+}
 .navbar-dark .brand-left {
 	flex: 0 0 20px;
 	background-color: $primary;
@@ -160,8 +163,7 @@ h1 {
 /*
  *	POSTS
  */
-.post-page h1,
-.archive-page h1 {
+.post-page h1 {
 	margin: 0;
 }
 .post-card {
@@ -224,6 +226,9 @@ archive-card .card-header a:hover {
 /*
  *	ARCHIVE FORM
  */
+.archive-page h1 {
+	margin: 0;
+}
 .archive-create-page form {
 	margin-top: 15px;
 }
@@ -284,3 +289,11 @@ archive-card .card-header a:hover {
 .card-header h3 {
 	margin: 0;
 }
+
+/*
+ *	USERS
+ */
+.user-page h1 {
+	margin: 0;
+}
+
