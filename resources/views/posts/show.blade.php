@@ -2,6 +2,42 @@
 
 @section('content')
 
-	<h1>Post id# {{ $post->id }}</h1>
+	<div class="row post-page">
+		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
+		<div class="col-lg-8 col-md-10 col-sm-12 col-12">
+
+			<!-- PAGE TOP / BUTTON -->
+			<div class="d-flex flex-row align-items-center">
+				<div class="mr-auto">
+					<h1>View Post</h1>
+				</div>
+				<div class="">
+					<a href="/posts/" class="btn btn-primary">Back</a>
+				</div>
+			</div>
+			<!-- POST -->
+			<div class="card post-card">
+				<div class="card-body">
+					<div class="card-name">{{ $post->user->name }}</div>
+					<div class="card-small">Posted on {{ $post->created_at->format('F j, Y \a\t h:ma') }}</div>
+					@if($post->image_name)
+						<div class="card-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid"></div>
+					@endif
+					<div class="card-content">{!! $post->content !!}</div>
+					<div class="card-buttons d-flex flex-row align-items-end">
+						<div class="mr-auto"><a href="/posts/{{$post->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
+						<div class="">
+							{!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-form'])!!}
+								{{Form::hidden('_method', 'DELETE')}}
+								{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger'])}}
+							{!!Form::close()!!}
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
+	</div>
 
 @endsection

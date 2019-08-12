@@ -25,7 +25,7 @@
 							@if($post->image_name)
 								<div class="card-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid"></div>
 							@endif
-							<div class="card-content">{{$post->content}}</div>
+							<div class="card-content">{!! $post->content !!}</div>
 							<div class="card-buttons d-flex flex-row align-items-end">
 								<div class="mr-auto"><a href="/posts/{{$post->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
 								<div class="">
