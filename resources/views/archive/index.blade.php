@@ -4,7 +4,7 @@
 
 	<div class="archive-page">
 
-		<div class="d-flex flex-row align-items-end">
+		<div class="d-flex flex-row align-items-center">
 			<div class="mr-auto">
 				<h1>Archive Index</h1>
 			</div>

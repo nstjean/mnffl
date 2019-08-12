@@ -10695,7 +10695,7 @@ a:hover {
 
 #main-content {
   position: relative;
-  padding-top: 60px;
+  padding-top: 80px;
   z-index: 500;
 }
 
@@ -10705,6 +10705,7 @@ h1 {
   -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.9));
   -moz-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.9));
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.9));
+  margin: 0;
 }
 
 /*
@@ -10821,11 +10822,6 @@ h1 {
  *	POSTS
  */
 
-.post-page h1,
-.archive-page h1 {
-  margin: 0;
-}
-
 .post-card {
   margin: 10px 0;
 }
@@ -10919,7 +10915,6 @@ archive-card .card-header a:hover {
   max-width: 220px;
   margin-bottom: 0;
   margin-top: 0.5em;
-  font-weight: bold;
 }
 
 .archive-create-page .form-group > .form-control {
