@@ -11028,3 +11028,48 @@ archive-card .card-header a:hover {
   margin: 0;
 }
 
+.user-page .list-group-item {
+  padding: 0;
+}
+
+.user-page a.clickable-row {
+  color: #fff;
+  text-decoration: none;
+  margin: 0;
+  padding: 0.7em;
+}
+
+.user-page a.clickable-row:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #212529;
+}
+
+.user-page .card-user-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.user-page .clickable-row {
+  flex: 1 1 100%;
+}
+
+.user-page .trash-item {
+  flex: 0 0 35px;
+}
+
+.user-page .trash-item button {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  border: 0;
+  padding: 0.1em 0.3em;
+  border-radius: 5px;
+}
+
+.user-page .trash-item button:hover {
+  background-color: #ed641a;
+}
+
