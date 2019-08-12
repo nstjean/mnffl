@@ -60,6 +60,13 @@ h1 {
 	filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.9));
 }
 
+/*
+ *	COMPONENTS
+ */
+.card-header {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
 
 /*
  *	NAVBAR
@@ -114,7 +121,10 @@ h1 {
 	margin: auto;
 	margin-bottom: 15px;
 }
-.post-page .card-photo, .post-page .card-content {
+.post-page .card-photo,
+.post-page .card-content,
+.post-page .card-small
+{
 	margin-bottom: 10px;
 }
 
@@ -132,7 +142,6 @@ h1 {
 	margin: 0;
 }
 .archive-card .card-header {
-	background-color: $primary;
 	font-weight: bold;
 	color: white;
 }

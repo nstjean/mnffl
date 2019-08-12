@@ -4794,6 +4794,7 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
+  color: #fff;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 0 solid #969696;
 }
@@ -5543,8 +5544,8 @@ a.badge-dark.focus {
   display: block;
   padding: 0.75rem 1.25rem;
   margin-bottom: -1px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #000;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .list-group-item:first-child {
@@ -5562,7 +5563,7 @@ a.badge-dark.focus {
 .list-group-item:disabled {
   color: #6c757d;
   pointer-events: none;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .list-group-item.active {
@@ -10707,6 +10708,14 @@ h1 {
 }
 
 /*
+ *	COMPONENTS
+ */
+
+.card-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/*
  *	NAVBAR
  */
 
@@ -10773,7 +10782,8 @@ h1 {
 }
 
 .post-page .card-photo,
-.post-page .card-content {
+.post-page .card-content,
+.post-page .card-small {
   margin-bottom: 10px;
 }
 
@@ -10795,7 +10805,6 @@ h1 {
 }
 
 .archive-card .card-header {
-  background-color: #ed641a;
   font-weight: bold;
   color: white;
 }

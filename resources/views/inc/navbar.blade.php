@@ -12,9 +12,13 @@
         <li class="nav-item">
           <a class="nav-link" href="/archive">Archive</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/posts">Posts</a>
-        </li>
+        @if(Auth::user()->isAdmin())
+          <li class="divider">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users">Users</a>
+          </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/dashboard/') }}">Dashboard</a>
         </li>

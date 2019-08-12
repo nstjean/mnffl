@@ -7,15 +7,15 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
-// Bootstrap Components
+// Components
 $border-radius:               .5rem;
 
 // Colors
-$background-color: rgb(40, 40, 40, 1);
-$primary: #ed641a;
-$link-hover-color: darken(#ed641a, 30%);
+$background-color:					rgb(40, 40, 40, 1);
+$primary:							#ed641a;
+$link-hover-color:					darken(#ed641a, 30%);
 
-// Bootstrap Pagination
+// Pagination
 $pagination-color:                  #fff;
 $pagination-bg:                     #000;
 $pagination-border-width:           0;
@@ -27,7 +27,12 @@ $pagination-disabled-color:         #6c757d;
 $pagination-disabled-bg:            #000;
 $pagination-disabled-border-color:  0;
 
-// Boostrap Cards
+// Cards
 $card-bg:                           #000;
+$card-cap-color:                    #fff;
 $card-border-width:                 0;
 $card-border-color:                 rgb(150, 150, 150);
+
+// Lists
+$list-group-bg:                     #000;
+$list-group-border-color:           rgba(255, 255, 255, .125);
