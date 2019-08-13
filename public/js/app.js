@@ -36861,7 +36861,8 @@ if (token) {
 
 $(".delete-form").on("submit", function () {
   return confirm("Permanently delete?");
-});
+}); // Post delete button
+
 $(".delete-anchor").on("click", function () {
   event.preventDefault();
 
@@ -36869,6 +36870,12 @@ $(".delete-anchor").on("click", function () {
     var postID = $(this).attr('data-value');
     $("#" + postID).submit();
   }
+}); // Hover clickable-row
+
+$(".clickable-row").hover(function () {
+  $(this).addClass('active');
+}, function () {
+  $(this).removeClass('active');
 });
 
 /***/ }),

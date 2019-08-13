@@ -30,8 +30,8 @@
 				@if(count($users)>0)
 					@foreach($users as $user)
 						<li class="list-group-item">
-							<div class="card-user-list-item">
-								<a href="/users/{{$user->id}}/edit" class="row clickable-row">
+							<div class="card-user-list-item clickable-row">
+								<a href="/users/{{$user->id}}/edit" class="row">
 									<div class="col-md-3 col-sm-6 col-12">{{$user->name}}</div>
 									<div class="col-md-3 col-sm-6 col-12">{{$user->team_name}}</div>
 									<div class="col-md-4 col-sm-10 col-12">{{$user->email}}</div>
@@ -45,7 +45,7 @@
 								</a>
 								{{-- <div class="col-md-1 col-sm-2 col-12"><a href="/users/{{$user->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div> --}}
 								<div class="trash-item">
-									{!!Form::open(['action' => ['UsersController@destroy', $user->id], 'method' => 'user', 'class' => 'delete-form'])!!}
+									{!!Form::open(['action' => ['UsersController@destroy', $user->id], 'method' => 'user', 'class' => 'trash-form'])!!}
 										{{Form::hidden('_method', 'DELETE')}}
 										<button type="submit"><i class="fas fa-trash"></i></button>
 									{!!Form::close()!!}
