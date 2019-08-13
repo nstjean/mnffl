@@ -22,8 +22,8 @@
 
 						{{-- Post Header --}}
 						<div class="card-header">
-							<div class="card-header-pic">
-								<img src="{{ url('/storage/profile_pics/'.$post->user->profile_pic) }}" class="user-thumb">
+							<div class="card-header-pic profile-pic-wrapper">
+								<img src="{{ url('/storage/profile_pics/'.$post->user->profile_pic) }}" class="profile-pic">
 							</div>
 							<div class="card-header-left">
 								{{-- Poster Name --}}

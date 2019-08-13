@@ -28,29 +28,31 @@
 				<div class="card-header">
 					<h3>My Profile</h3>
 				</div>
-				<div class="card-body row">
-					<div class="col-md-2">
+				<div class="card-body">
+					<div class="profile-info-top">
 						@if(Auth::user()->profile_pic)
-							<img src="{{ url('/storage/profile_pics/'.Auth::user()->profile_pic) }}" class="profile-pic img-fluid">
+							<div class="profile-pic-wrapper">
+								<img src="{{ url('/storage/profile_pics/'.Auth::user()->profile_pic) }}" class="profile-pic">
+							</div>
 						@endif
+						<div class="profile-text">
+							<div class="row">
+								<div class="label col-md-3 col-sm-6">Name:</div>
+								<div class="info col-md-9 col-sm-6">{{ Auth::user()->name }}</div>
+							</div>
+							<div class="row">
+								<div class="label col-md-3 col-sm-6">Email:</div>
+								<div class="info col-md-9 col-sm-6">{{ Auth::user()->email }}</div>
+							</div>
+							<div class="row">
+								<div class="label col-md-3 col-sm-6">Team:</div>
+								<div class="info col-md-9 col-sm-6">{{ Auth::user()->team_name }}</div>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-10">
-						<div class="row">
-							<div class="label col-md-3 col-sm-6">Name:</div>
-							<div class="info col-md-9 col-sm-6">{{ Auth::user()->name }}</div>
-						</div>
-						<div class="row">
-							<div class="label col-md-3 col-sm-6">Email:</div>
-							<div class="info col-md-9 col-sm-6">{{ Auth::user()->email }}</div>
-						</div>
-						<div class="row">
-							<div class="label col-md-3 col-sm-6">Team:</div>
-							<div class="info col-md-9 col-sm-6">{{ Auth::user()->team_name }}</div>
-						</div>
-						<div>
-							<a href="{{ url('/profile/edit/') }}" class="btn btn-primary">Edit My Profile</a>
-							<a href="{{ url('/password/change/') }}" class="btn btn-primary ml-3">Change Password</a>
-						</div>
+					<div class="profile-info-bottom">
+						<a href="{{ url('/profile/edit/') }}" class="btn btn-primary">Edit My Profile</a>
+						<a href="{{ url('/password/change/') }}" class="btn btn-primary ml-3">Change Password</a>
 					</div>
 				</div>
 			</section>

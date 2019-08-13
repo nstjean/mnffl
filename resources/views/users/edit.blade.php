@@ -58,7 +58,9 @@
                         {{Form::label('profile_pic', 'Current Profile:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
                         <div class="col-md-6">
                             @if(Auth::user()->profile_pic)
-                                <img src="{{ url('/storage/profile_pics/'.Auth::user()->profile_pic) }}" class="profile-pic img-fluid">
+                                <div class="profile-pic-wrapper">
+                                    <img src="{{ url('/storage/profile_pics/'.Auth::user()->profile_pic) }}" class="profile-pic">
+                                </div>
                             @endif
                         </div>
                     </div>

@@ -70,6 +70,15 @@ h1 {
 .btn-sm {
 	padding: 0px 5px;
 }
+.profile-pic-wrapper {
+	width: $profile-pic-size;
+	height: $profile-pic-size;
+}
+.profile-pic {
+	max-height: $profile-pic-size;
+	width: auto;
+	overflow: hidden;
+}
 
 /*
  *	NAVBAR
@@ -222,8 +231,7 @@ h1 {
 	border: 0;
 }
 .post-card .card-header-pic {
-	flex: 0 0 40px;
-	height: 40px;
+	flex: 0 0 $profile-pic-size;
 	margin: 0.5rem 0.5rem 0 0;
 }
 .post-card .card-header-left {
@@ -232,11 +240,6 @@ h1 {
 }
 .post-card .card-header-right {
 	flex: 0 0 5%;
-}
-.post-card .card-header-pic img {
-	max-height: 40px;
-	width: auto;
-	overflow: hidden;
 }
 .post-card .card-body {
 	padding-top: 1rem;
@@ -380,6 +383,24 @@ archive-card .card-header a:hover {
 .card-dashboard-list-item,
 .card-dashboard-list-item>a {
 	width: 100%;
+	margin: 0;
+}
+.dashboard-page .profile-info-top {
+	display: flex;
+	width: 100%;
+	align-items: center;
+}
+.dashboard-page .profile-pic-wrapper {
+	flex: 0 0 auto;
+}
+.dashboard-page .profile-text {
+	flex: 1 1 100%;
+}
+.dashboard-page .profile-info-bottom {
+	width: 100%;
+	margin-top: 0.75rem;
+}
+.dashboard-page .profile-text .row {
 	margin: 0;
 }
 
