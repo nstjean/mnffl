@@ -22,10 +22,13 @@
 
 						{{-- Post Header --}}
 						<div class="card-header">
+							<div class="card-header-pic">
+								<img src="{{ url('/storage/profile_pics/'.$post->user->profile_pic) }}" class="user-thumb">
+							</div>
 							<div class="card-header-left">
 								{{-- Poster Name --}}
 								<div class="card-name">{{ $post->user->name }}</div>
-								<div class="card-small">Posted on {{ $post->created_at->format('F j, Y \a\t h:ma') }}</div>
+								<div class="card-small">{{ $post->created_at->format('g:ma \o\n n/j/y') }}</div>
 							</div>
 							<div class="card-header-right dropdown show">
 								{{-- Dropdown Menu --}}

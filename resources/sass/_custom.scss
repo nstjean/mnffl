@@ -221,12 +221,22 @@ h1 {
 	justify-content: space-between;
 	border: 0;
 }
+.post-card .card-header-pic {
+	flex: 0 0 40px;
+	height: 40px;
+	margin: 0.5rem 0.5rem 0 0;
+}
 .post-card .card-header-left {
 	flex: 1 1 100%;
-	padding-top: 0.5rem;
+	padding-top: 0.6rem;
 }
 .post-card .card-header-right {
 	flex: 0 0 5%;
+}
+.post-card .card-header-pic img {
+	max-height: 40px;
+	width: auto;
+	overflow: hidden;
 }
 .post-card .card-body {
 	padding-top: 1rem;
