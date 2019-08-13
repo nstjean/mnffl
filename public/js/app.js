@@ -36862,6 +36862,14 @@ if (token) {
 $(".delete-form").on("submit", function () {
   return confirm("Permanently delete?");
 });
+$(".delete-anchor").on("click", function () {
+  event.preventDefault();
+
+  if (confirm("Permanently delete this post?")) {
+    var postID = $(this).attr('data-value');
+    $("#" + postID).submit();
+  }
+});
 
 /***/ }),
 

@@ -67,7 +67,9 @@ h1 {
 .card-header {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
-
+.btn-sm {
+	padding: 0px 5px;
+}
 
 /*
  *	NAVBAR
@@ -87,7 +89,7 @@ h1 {
 .bg-dark {
  	background-color: $black !important;
 }
-// NAV LOGO
+/*NAV LOGO*/
 .navbar .brand-container {
 	z-index: 10;
 	display: flex;
@@ -118,7 +120,7 @@ h1 {
 	background-color: $primary;
 	background: linear-gradient(to right bottom, $primary 50%, $black 50%);
 }
-// NAV LINKS
+/*NAV LINKS*/
 .navbar .navbar-collapse {
 	margin-left: 50px;
 }
@@ -132,29 +134,29 @@ h1 {
  	color: $primary;
  	border-bottom: 3px solid $primary;
 }
-// NAV TOGGLE
+/*NAV TOGGLE*/
 .navbar-dark .navbar-toggler {
 	padding: 0.4em 0.2em;
 	font-size: 24px;
 	border: 0;
 	color: $white;
 }
-// NAV DROPDOWN
-.navbar-nav .dropdown-menu {
+/*NAV DROPDOWN*/
+.dropdown-menu {
 	background-color: $black;
 	border: 1px solid $gray-100;
 	color: $white;
 }
-.navbar-nav .dropdown-item {
+.dropdown-item {
 	color: $white;
  	border-left: 3px solid $black;
 }
-.navbar-nav .dropdown-item:hover {
+.dropdown-item:hover {
 	color: $primary;
 	background: none;
  	border-left: 3px solid $primary;
 }
-// NAV COLLAPSED MENU
+/*NAV COLLAPSED MENU*/
 .navbar-collapse.show .navbar-nav .nav-link {
  	padding: .2em 0 0.1em 0;
  	margin: 0.4em 0;
@@ -213,30 +215,63 @@ h1 {
 .post-card {
 	margin: 10px 0;
 }
-.card-small {
+.post-card .card-header {
+	padding: 0.75rem 0.5rem 0 1.25rem;
+	display: flex;
+	justify-content: space-between;
+	border: 0;
+}
+.post-card .card-header-left {
+	flex: 1 1 100%;
+	padding-top: 0.5rem;
+}
+.post-card .card-header-right {
+	flex: 0 0 5%;
+}
+.post-card .card-body {
+	padding-top: 1rem;
+}
+.post-card .card-content>p {
+	margin-bottom: 0.75rem;
+}
+/*Last P tag should have no margin on the bottom*/
+.post-card .card-content>p:last-child {
+	margin-bottom: 0;
+}
+.post-card .card-small {
 	font-size: 0.9em;
 	color: $gray-600;
 	margin-right: 10px;
 }
-.card-buttons {
-	font-size: 0.8em;
-	text-transform: uppercase;
-}
 .form-page form {
 	margin-top: 15px;
-}
-.btn-sm {
-	padding: 0px 5px;
 }
 .edit-photo {
 	margin: auto;
 	margin-bottom: 15px;
 }
-.post-page .card-photo,
-.post-page .card-content,
-.post-page .card-small
-{
-	margin-bottom: 10px;
+.post-page .card-photo {
+	margin-bottom: 15px;
+}
+/*DROPDOWN MENU*/
+.post-card .dropdown>a {
+	font-size: 20px;
+	color: $gray-200;
+}
+.post-card .dropdown-menu {
+	border: 1px solid $gray-600;
+	background: #18191a;
+}
+.post-card .dropdown-divider {
+	border-top: 1px solid $gray-800;
+}
+.post-card .dropdown-item {
+ 	border: 0;
+}
+.post-card .dropdown-item:hover {
+	color: $white;
+	background-color: $gray-800;
+	border: 0;
 }
 
 /*

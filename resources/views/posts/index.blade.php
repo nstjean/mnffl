@@ -19,23 +19,45 @@
 			@if(count($posts)>0)
 				@foreach($posts as $post)
 					<div class="card post-card">
+
+						{{-- Post Header --}}
+						<div class="card-header">
+							<div class="card-header-left">
+								{{-- Poster Name --}}
+								<div class="card-name">{{ $post->user->name }}</div>
+								<div class="card-small">Posted on {{ $post->created_at->format('F j, Y \a\t h:ma') }}</div>
+							</div>
+							<div class="card-header-right dropdown show">
+								{{-- Dropdown Menu --}}
+					            <a id="dropdownMenu{{ $post->id }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					            	<i class="fas fa-ellipsis-h"></i>
+					            </a>
+
+				                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu{{ $post->id }}">
+				                    <a class="dropdown-item" href="/posts/{{$post->id}}/edit">
+				                        Edit Post
+				                    </a>
+				                    <div class="dropdown-divider"></div>
+				                    <a class="dropdown-item delete-anchor" href="#" data-value="delete-form{{ $post->id }}">
+				                        {{ __('Delete') }}
+				                    </a>
+				                    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-post', 'id' => 'delete-form'.$post->id])!!}
+				                        @csrf
+										{{Form::hidden('_method', 'DELETE')}}
+									{!!Form::close()!!}
+				                </div>
+							</div>
+						</div>
+
+						{{-- Post Body --}}
 						<div class="card-body">
-							<div class="card-name">{{ $post->user->name }}</div>
-							<div class="card-small">Posted on {{ $post->created_at->format('F j, Y \a\t h:ma') }}</div>
+							
 							@if($post->image_name)
 								<div class="card-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid"></div>
 							@endif
 							<div class="card-content">{!! $post->content !!}</div>
-							<div class="card-buttons d-flex flex-row align-items-end">
-								<div class="mr-auto"><a href="/posts/{{$post->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
-								<div class="">
-									{!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-form'])!!}
-										{{Form::hidden('_method', 'DELETE')}}
-										{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger'])}}
-									{!!Form::close()!!}
-								</div>
-							</div>
 						</div>
+
 					</div>
 				@endforeach
 				{{$posts->links()}}
