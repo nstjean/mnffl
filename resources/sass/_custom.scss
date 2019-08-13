@@ -81,6 +81,27 @@ h1 {
 }
 
 /*
+ *	FORM COMPONENTS
+ */
+input.form-control {
+	background-color: $gray-900;
+	border-color: $gray-600;
+	color: $white;
+}
+input.form-control:focus {
+	background-color: $gray-900;
+	border-color: $gray-400;
+	box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+	color: $white;
+}
+.form-control:disabled, .form-control[readonly] {
+	background-color: $black;
+	color: $gray-200;
+	border-color: $black;
+}
+
+
+/*
  *	NAVBAR
  */
 .navbar {
@@ -273,7 +294,7 @@ h1 {
 }
 .post-card .dropdown-menu {
 	border: 1px solid $gray-600;
-	background: #18191a;
+	background: $gray-950;
 }
 .post-card .dropdown-divider {
 	border-top: 1px solid $gray-800;
@@ -369,6 +390,17 @@ archive-card .card-header a:hover {
 .archive-create-page .no-documents {
 	padding-left: 1em;
 	margin-bottom: 2em;
+}
+@media (max-width:767px) {
+	.archive-create-page .form-group {
+		flex-wrap: wrap;
+	}
+	.archive-create-page .form-group > label,
+	.archive-create-page .form-group > .form-control,
+	.archive-create-page .form-file-inputs
+	{
+		flex: 1 1 100%;
+	}
 }
 
 /*

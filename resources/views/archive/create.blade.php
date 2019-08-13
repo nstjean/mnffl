@@ -41,7 +41,7 @@
 						{{Form::label('highest_week_value', 'Highest Week - Number Value:', ['class' => ''])}}
 						{{Form::text('highest_week_score', '', ['class' => 'form-control', 'placeholder' => ''])}}
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-upload">
 						{{Form::label('documents', 'Upload Documents:', ['class' => ''])}}
 						{{Form::file('documents[]', ['multiple' => 'multiple'])}}
 					</div>

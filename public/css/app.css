@@ -10733,6 +10733,30 @@ h1 {
 }
 
 /*
+ *	FORM COMPONENTS
+ */
+
+input.form-control {
+  background-color: #212529;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+input.form-control:focus {
+  background-color: #212529;
+  border-color: #ced4da;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #000;
+  color: #e9ecef;
+  border-color: #000;
+}
+
+/*
  *	NAVBAR
  */
 
@@ -11085,6 +11109,18 @@ archive-card .card-header a:hover {
 .archive-create-page .no-documents {
   padding-left: 1em;
   margin-bottom: 2em;
+}
+
+@media (max-width: 767px) {
+  .archive-create-page .form-group {
+    flex-wrap: wrap;
+  }
+
+  .archive-create-page .form-group > label,
+  .archive-create-page .form-group > .form-control,
+  .archive-create-page .form-file-inputs {
+    flex: 1 1 100%;
+  }
 }
 
 /*
