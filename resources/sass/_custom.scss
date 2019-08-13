@@ -472,23 +472,26 @@ archive-card .card-header a:hover {
 	text-decoration: none;
 }
 .trash-item {
-	flex: 0 0 35px;
+	flex: 0 0 38px;
 }
-.trash-item form,
-.trash-item button {
+.trash-item a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	height: 100%;
-}
-.trash-item button {
 	font-size: 20px;
 	padding: 0;
 	margin: 0;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0); /*transparent*/
 	color: $white;
 	border: 0;
 	/*padding: 0.1em 0.3em;
 	border-radius: 5px;*/
 }
- .trash-item button:hover {
+ .trash-item a:hover {
 	background-color: $primary;
+}
+.trash-item i {
+	flex: 0 0 auto;
 }

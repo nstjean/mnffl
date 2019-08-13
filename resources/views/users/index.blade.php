@@ -43,11 +43,13 @@
 										@endif
 									</div>
 								</a>
-								{{-- <div class="col-md-1 col-sm-2 col-12"><a href="/users/{{$user->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div> --}}
 								<div class="trash-item">
-									{!!Form::open(['action' => ['UsersController@destroy', $user->id], 'method' => 'user', 'class' => 'trash-form'])!!}
+				                    <a class="delete-anchor" href="#" data-value="delete-form{{ $user->id }}">
+				                        <i class="fas fa-trash"></i>
+				                    </a>
+									{!!Form::open(['action' => ['UsersController@destroy', $user->id], 'method' => 'user', 'class' => 'delete-hidden', 'id' => 'delete-form'.$user->id])!!}
+				                        @csrf
 										{{Form::hidden('_method', 'DELETE')}}
-										<button type="submit"><i class="fas fa-trash"></i></button>
 									{!!Form::close()!!}
 								</div>
 							</div>

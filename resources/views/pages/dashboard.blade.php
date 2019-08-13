@@ -66,11 +66,21 @@
 						@if(count($posts)>0)
 							@foreach($posts as $post)
 								<li class="list-group-item">
-									<div class="card-dashboard-list-item row">
-										<a href="/posts/{{$post->id}}/edit" class="row clickable-row">
+									<div class="card-dashboard-list-item clickable-row">
+										<a href="/posts/{{$post->id}}/edit" class="row">
 											<div class="col-md-2 col-sm-4 col-12">{{ $post->created_at->format('m/j/y') }}</div>
 											<div class="col-md-9 col-sm-8 col-12">{{ substr(strip_tags($post->content), 0, 40) }}</div>
 										</a>
+										{{-- Trash Button --}}
+										<div class="trash-item">
+						                    <a class="delete-anchor" href="#" data-value="delete-form{{ $post->id }}">
+						                        <i class="fas fa-trash"></i>
+						                    </a>
+						                    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-hidden', 'id' => 'delete-form'.$post->id])!!}
+						                        @csrf
+												{{Form::hidden('_method', 'DELETE')}}
+											{!!Form::close()!!}
+										</div>
 									</div>
 								</li>
 							@endforeach
