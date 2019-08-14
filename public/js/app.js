@@ -36871,12 +36871,6 @@ $(".delete-anchor").on("click", function () {
     var postID = $(this).attr('data-value');
     $("#" + postID).submit();
   }
-}); // Hover clickable-row
-
-$(".clickable-row").hover(function () {
-  $(this).addClass('active');
-}, function () {
-  $(this).removeClass('active');
 });
 
 /***/ }),

@@ -6,7 +6,7 @@
 		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
 		<div class="col-lg-8 col-md-10 col-sm-12 col-12">
 
-			<div class="d-flex flex-row align-items-end">
+			<div class="d-flex flex-row align-items-end mb-2">
 				<div class="mr-auto">
 					<h1>Dashboard</h1>
 				</div>
@@ -73,7 +73,7 @@
 										</a>
 										{{-- Trash Button --}}
 										<div class="trash-item">
-						                    <a class="delete-anchor" href="#" data-value="delete-form{{ $post->id }}">
+						                    <a class="delete-anchor btn btn-primary" href="#" data-value="delete-form{{ $post->id }}">
 						                        <i class="fas fa-trash"></i>
 						                    </a>
 						                    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-hidden', 'id' => 'delete-form'.$post->id])!!}

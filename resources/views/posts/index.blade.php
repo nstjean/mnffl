@@ -7,7 +7,7 @@
 		<div class="col-lg-8 col-md-10 col-sm-12 col-12">
 
 			<!-- PAGE TOP / BUTTON -->
-			<div class="d-flex flex-row align-items-center">
+			<div class="d-flex flex-row align-items-center bg-2">
 				<div class="mr-auto">
 					<h1>Posts</h1>
 				</div>

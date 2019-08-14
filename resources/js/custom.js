@@ -11,9 +11,3 @@ $(".delete-anchor").on("click", function(){
 		$("#"+postID).submit();
 	}
 });
-
-// Hover clickable-row
-$(".clickable-row").hover(
-	function() { $(this).addClass('active') },
-	function() { $(this).removeClass('active')}
-);
