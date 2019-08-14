@@ -10494,6 +10494,181 @@ input.form-control:focus {
 }
 
 /*
+ * DROPDOWN MENUS
+ */
+
+#main-content .dropdown > a {
+  font-size: 20px;
+  color: #6c757d;
+}
+
+#main-content .dropdown > a:hover {
+  color: #dee2e6;
+}
+
+#main-content .dropdown-menu {
+  border: 1px solid #495057;
+  background: #18191a;
+}
+
+#main-content .dropdown-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+#main-content .dropdown-item {
+  border: 0;
+}
+
+#main-content .dropdown-item:hover {
+  color: #fff;
+  background-color: #343a40;
+  border: 0;
+}
+
+/*
+ *	TABLES
+ */
+
+.clickable-row,
+.row-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.row-header {
+  font-weight: bold;
+}
+
+.clickable-row:hover {
+  background-color: #212529;
+}
+
+.clickable-row > a,
+.row-header .row-item-expand {
+  flex: 1 1 100%;
+  color: #fff;
+  text-decoration: none;
+  margin: 0;
+  padding: 0.7em;
+}
+
+.clickable-row > a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.row-header .trash-item {
+  padding: 0.7rem;
+}
+
+.trash-item a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  overflow: hidden;
+  transition: all 0.2s linear;
+}
+
+.trash-item i {
+  flex: 0 0 auto;
+}
+
+.clickable-row:hover .trash-item a {
+  width: 38px;
+  transition: all 0.2s linear;
+  /*direction: rtl;*/
+  opacity: 1;
+}
+
+/*
+ * CARD TITLES WITH DROPDOWN BOXES
+ */
+
+.card-header-divided {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-header-divided .card-header-pic {
+  flex: 0 0 40px;
+  margin: 0.5rem 0.5rem 0 0;
+}
+
+.card-header-divided .card-header-left {
+  flex: 1 1 100%;
+}
+
+.card-header-divided .card-header-right {
+  flex: 0 0 auto;
+}
+
+/*
+ * CLICKABLE ROW IN CARD TITLE WITH DROPDOWN BOXES
+ */
+
+.clickable-row.card-header-divided {
+  padding: 0;
+}
+
+.clickable-row.card-header-divided .card-header-left {
+  padding: 0.75rem 0 0.75rem 1.25rem;
+}
+
+.clickable-row.card-header-divided .hover-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  font-size: 24px;
+  color: #fff;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.clickable-row.card-header-divided .hover-icon i {
+  flex: 0 0 auto;
+}
+
+.clickable-row.card-header-divided a:hover .hover-icon {
+  width: 22px;
+  transition: all 0.2s ease;
+  opacity: 1;
+  color: #fff;
+}
+
+.clickable-row.card-header-divided .card-header-right .dropdown-icon {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem 0 0.25rem;
+}
+
+.clickable-row.card-header-divided .card-header-right .dropdown-icon i {
+  /*makes anything within the anchor tag centered vertically*/
+  flex: 1 1 100%;
+}
+
+.clickable-row.card-header-divided .card-header-right .dropdown-icon:hover {
+  /*fixes what making it a flex item broke, don't remove*/
+  text-decoration: none;
+}
+
+/*
  *	NAVBAR
  */
 
@@ -10664,25 +10839,13 @@ input.form-control:focus {
   margin: 0 0 10px 0;
 }
 
-.post-card .card-header {
-  padding: 0.75rem 0.5rem 0 1.25rem;
-  display: flex;
-  justify-content: space-between;
+.post-card .card-header-divided {
+  padding: 0.75rem 1.25rem 0 1.25rem;
   border: 0;
 }
 
-.post-card .card-header-pic {
-  flex: 0 0 40px;
-  margin: 0.5rem 0.5rem 0 0;
-}
-
 .post-card .card-header-left {
-  flex: 1 1 100%;
   padding-top: 0.6rem;
-}
-
-.post-card .card-header-right {
-  flex: 0 0 5%;
 }
 
 .post-card .card-body {
@@ -10718,32 +10881,6 @@ input.form-control:focus {
   margin-bottom: 15px;
 }
 
-/*DROPDOWN MENU*/
-
-.post-card .dropdown > a {
-  font-size: 20px;
-  color: #e9ecef;
-}
-
-.post-card .dropdown-menu {
-  border: 1px solid #6c757d;
-  background: #18191a;
-}
-
-.post-card .dropdown-divider {
-  border-top: 1px solid #343a40;
-}
-
-.post-card .dropdown-item {
-  border: 0;
-}
-
-.post-card .dropdown-item:hover {
-  color: #fff;
-  background-color: #343a40;
-  border: 0;
-}
-
 /*
  *	ARCHIVE
  */
@@ -10764,15 +10901,6 @@ input.form-control:focus {
 .archive-card .card-header {
   font-weight: bold;
   color: white;
-}
-
-.archive-card .card-header a {
-  color: white;
-}
-
-archive-card .card-header a:hover {
-  color: white;
-  text-decoration: underline;
 }
 
 .card-label {
@@ -10912,72 +11040,5 @@ archive-card .card-header a:hover {
 .user-page .list-group-item,
 .user-page .card-header {
   padding: 0;
-}
-
-/*
- *	TABLES
- */
-
-.clickable-row,
-.row-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-}
-
-.row-header {
-  font-weight: bold;
-}
-
-.clickable-row:hover {
-  background-color: #212529;
-}
-
-.clickable-row > a,
-.row-header .row-item-expand {
-  flex: 1 1 100%;
-  color: #fff;
-  text-decoration: none;
-  margin: 0;
-  padding: 0.7em;
-}
-
-.clickable-row > a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.row-header .trash-item {
-  padding: 0.7rem;
-}
-
-.trash-item a {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 0;
-  height: 100%;
-  font-size: 20px;
-  padding: 0;
-  margin: 0;
-  /*background-color: rgba(0, 0, 0, 0); /*transparent*/
-  color: #fff;
-  border: 0;
-  overflow: hidden;
-  transition: all 0.2s linear;
-}
-
-.trash-item i {
-  flex: 0 0 auto;
-}
-
-.clickable-row:hover .trash-item a {
-  width: 38px;
-  transition: all 0.2s linear;
-  /*direction: rtl;*/
-  opacity: 1;
 }
 

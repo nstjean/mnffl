@@ -36871,7 +36871,14 @@ $(".delete-anchor").on("click", function () {
     var postID = $(this).attr('data-value');
     $("#" + postID).submit();
   }
-});
+}); // // hover effect for archive title
+// $(".archive-title-link").hover(
+// 	function() {
+// 		$(this).child('h3').prepend('<i class="fas fa-caret-right"></i>');
+// 	},
+// 	function() {
+// 	}
+// );
 
 /***/ }),
 

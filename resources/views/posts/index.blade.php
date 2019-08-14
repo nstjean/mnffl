@@ -21,7 +21,7 @@
 					<div class="card post-card">
 
 						{{-- Post Header --}}
-						<div class="card-header">
+						<div class="card-header card-header-divided">
 							<div class="card-header-pic profile-pic-wrapper">
 								<img src="{{ url('/storage/profile_pics/'.$post->user->profile_pic) }}" class="profile-pic">
 							</div>

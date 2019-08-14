@@ -221,7 +221,7 @@ class ArchiveController extends Controller
         //     $document->delete();
         // }
 
-        // $archiveItem->delete();
+        $archiveItem->delete();
         return redirect('/archive')->with('success', 'Archive Year Deleted');
     }
 }

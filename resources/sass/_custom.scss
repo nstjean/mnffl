@@ -100,6 +100,154 @@ input.form-control:focus {
 	border-color: $black;
 }
 
+/*
+ * DROPDOWN MENUS
+ */
+#main-content {
+	.dropdown > a {
+		font-size: 20px;
+		color: $gray-600;
+	}
+	.dropdown > a:hover {
+		color: $gray-300;
+	}
+	.dropdown-menu {
+		border: 1px solid $gray-700;
+		background: $gray-950;
+	}
+	.dropdown-divider {
+		border-top: 1px solid rgba(255, 255, 255, 0.125);
+	}
+	.dropdown-item {
+	 	border: 0;
+	}
+	.dropdown-item:hover {
+		color: $white;
+		background-color: $gray-800;
+		border: 0;
+	}
+}
+
+/*
+ *	TABLES
+ */
+.clickable-row,
+.row-header {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+}
+.row-header {
+	font-weight: bold;
+}
+.clickable-row:hover {
+	background-color: $gray-900;
+}
+.clickable-row > a,
+.row-header .row-item-expand {
+	flex: 1 1 100%;
+	color: $white;
+	text-decoration: none;
+	margin: 0;
+	padding: 0.7em;
+}
+.clickable-row > a:hover {
+	color: $white;
+	text-decoration: none;
+}
+.row-header .trash-item {
+	padding: 0.7rem;
+}
+.trash-item a {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	padding: 0;
+	border: 0;
+	color: $white;
+	overflow: hidden;
+	transition: all 0.2s linear;
+}
+.trash-item i {
+	flex: 0 0 auto;
+}
+.clickable-row:hover .trash-item a {
+	width: 38px;
+	transition: all 0.2s linear;
+	/*direction: rtl;*/
+	opacity: 1.0;
+}
+
+/*
+ * CARD TITLES WITH DROPDOWN BOXES
+ */
+.card-header-divided {
+	display: flex;
+	justify-content: space-between;
+}
+.card-header-divided .card-header-pic {
+	flex: 0 0 $profile-pic-size;
+	margin: 0.5rem 0.5rem 0 0;
+}
+.card-header-divided .card-header-left {
+	flex: 1 1 100%;
+}
+.card-header-divided .card-header-right {
+	flex: 0 0 auto;
+}
+
+
+/*
+ * CLICKABLE ROW IN CARD TITLE WITH DROPDOWN BOXES
+ */
+.clickable-row.card-header-divided {
+	padding: 0;
+	.card-header-left {
+		padding: 0.75rem 0 0.75rem 1.25rem;
+	}
+	.hover-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 100%;
+		font-size: 24px;
+		color: $white;
+		overflow: hidden;
+		transition: all 0.2s ease;
+	}
+	.hover-icon i {
+		flex: 0 0 auto;
+	}
+	a:hover .hover-icon {
+		width: 22px;
+		transition: all 0.2s ease;
+		opacity: 1.0;
+		color: $white;
+	}
+	.card-header-right .dropdown-icon {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		padding: 0 1.25rem 0 0.25rem;
+	}
+	.card-header-right .dropdown-icon i {  /*makes anything within the anchor tag centered vertically*/
+		flex: 1 1 100%;
+	}
+	.card-header-right .dropdown-icon:hover { /*fixes what making it a flex item broke, don't remove*/
+		text-decoration: none;
+	}
+}
 
 /*
  *	NAVBAR
@@ -245,22 +393,12 @@ input.form-control:focus {
 .post-card {
 	margin: 0 0 10px 0;
 }
-.post-card .card-header {
-	padding: 0.75rem 0.5rem 0 1.25rem;
-	display: flex;
-	justify-content: space-between;
+.post-card .card-header-divided {
+	padding: 0.75rem 1.25rem 0 1.25rem;
 	border: 0;
 }
-.post-card .card-header-pic {
-	flex: 0 0 $profile-pic-size;
-	margin: 0.5rem 0.5rem 0 0;
-}
 .post-card .card-header-left {
-	flex: 1 1 100%;
 	padding-top: 0.6rem;
-}
-.post-card .card-header-right {
-	flex: 0 0 5%;
 }
 .post-card .card-body {
 	padding-top: 1rem;
@@ -287,26 +425,6 @@ input.form-control:focus {
 .post-page .card-photo {
 	margin-bottom: 15px;
 }
-/*DROPDOWN MENU*/
-.post-card .dropdown>a {
-	font-size: 20px;
-	color: $gray-200;
-}
-.post-card .dropdown-menu {
-	border: 1px solid $gray-600;
-	background: $gray-950;
-}
-.post-card .dropdown-divider {
-	border-top: 1px solid $gray-800;
-}
-.post-card .dropdown-item {
- 	border: 0;
-}
-.post-card .dropdown-item:hover {
-	color: $white;
-	background-color: $gray-800;
-	border: 0;
-}
 
 /*
  *	ARCHIVE
@@ -324,13 +442,6 @@ input.form-control:focus {
 .archive-card .card-header {
 	font-weight: bold;
 	color: white;
-}
-.archive-card .card-header a {
-	color: white;
-}
-archive-card .card-header a:hover {
-	color: white;
-	text-decoration: underline;
 }
 .card-label {
 	font-weight: bold;
@@ -449,61 +560,3 @@ archive-card .card-header a:hover {
 }
 
 
-
-/*
- *	TABLES
- */
-.clickable-row,
-.row-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: stretch;
-}
-.row-header {
-	font-weight: bold;
-}
-.clickable-row:hover {
-	background-color: $gray-900;
-}
-.clickable-row > a,
-.row-header .row-item-expand {
-	flex: 1 1 100%;
-	color: $white;
-	text-decoration: none;
-	margin: 0;
-	padding: 0.7em;
-}
-.clickable-row > a:hover {
-	color: $white;
-	text-decoration: none;
-}
-.row-header .trash-item {
-	padding: 0.7rem;
-}
-.trash-item a {
-	position: absolute;
-	top: 0;
-	right: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 0;
-	height: 100%;
-	font-size: 20px;
-	padding: 0;
-	margin: 0;
-	/*background-color: rgba(0, 0, 0, 0); /*transparent*/
-	color: $white;
-	border: 0;
-	overflow: hidden;
-	transition: all 0.2s linear;
-}
-.trash-item i {
-	flex: 0 0 auto;
-}
-.clickable-row:hover .trash-item a {
-	width: 38px;
-	transition: all 0.2s linear;
-	/*direction: rtl;*/
-	opacity: 1.0;
-}

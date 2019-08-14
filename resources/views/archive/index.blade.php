@@ -20,13 +20,40 @@
 				@foreach($archive as $archiveItem)
 					<div class="archive-card col-lg-4 col-md-6">
 						<div class="card">
-							<div class="card-header">
-								<div class="d-flex flex-row align-items-start">
-									<div class="mr-auto">
-										<h3><a href="/archive/{{$archiveItem->id}}">{{$archiveItem->id}}</a></h3>
+							@if(Auth::user()->isAdmin())
+								{{-- Card Header For Admins --}}
+								<div class="card-header card-header-divided clickable-row">
+									<a href="/archive/{{$archiveItem->id}}" class="card-header-left archive-title-link">
+										<div class="hover-icon"><i class="fas fa-caret-right"></i></div>
+										<h3>{{$archiveItem->id}}</h3>
+									</a>
+					            	{{-- drop-down menu for edit/delete --}}
+									<div class="card-header-right dropdown show">
+							            <a id="dropdownMenu{{ $archiveItem->id }}" class="dropdown-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							            	<i class="fas fa-ellipsis-h"></i>
+							            </a>
+						                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu{{ $archiveItem->id }}">
+						                    <a class="dropdown-item" href="/archive/{{$archiveItem->id}}/edit">
+						                        Edit Archive
+						                    </a>
+						                    <div class="dropdown-divider"></div>
+						                    <a class="dropdown-item delete-anchor" href="#" data-value="delete-form{{ $archiveItem->id }}">
+						                        {{ __('Delete') }}
+						                    </a>
+						                    {!!Form::open(['action' => ['ArchiveController@destroy', $archiveItem->id], 'method' => 'POST', 'class' => 'delete-hidden', 'id' => 'delete-form'.$archiveItem->id])!!}
+						                        @csrf
+												{{Form::hidden('_method', 'DELETE')}}
+											{!!Form::close()!!}
+						                </div>
 									</div>
 								</div>
-							</div>
+							@else
+								{{-- Card Header For Users --}}
+								<div class="card-header">
+									<h3>{{$archiveItem->id}}</h3>
+								</div>
+							@endif
+							{{-- Card Body --}}
 							<div class="card-body d-flex flex-column align-items-start">
 								<div class="card-content mb-auto align-self-stretch">
 									<span class="card-label">League Champ:</span>
@@ -50,19 +77,6 @@
 										</ul>
 									@endif
 								</div>
-								@if(Auth::user()->isAdmin())
-									<div class="card-buttons align-self-stretch">
-										<div class="d-flex flex-row align-items-start" style="">
-											<div class="mr-auto"><a href="/archive/{{$archiveItem->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
-											<div class="">
-												{!!Form::open(['action' => ['ArchiveController@destroy', $archiveItem->id], 'method' => 'POST', 'class' => 'delete-form'])!!}
-													{{Form::hidden('_method', 'DELETE')}}
-													{{Form::submit('Delete', ['class' => 'btn btn-sm btn-danger'])}}
-												{!!Form::close()!!}
-											</div>
-										</div>
-									</div>
-								@endif
 							</div>
 						</div>
 					</div>
