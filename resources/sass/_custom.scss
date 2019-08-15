@@ -431,8 +431,12 @@ input.form-control:focus {
 .post-card .card-header-left {
 	padding-top: 0.6rem;
 }
-.post-card .card-body {
-	padding-top: 1rem;
+.post-card .card-body, {
+	padding-top: 0;
+}
+.post-card .card-content,
+.post-page .card-photo {
+	margin-top: 1.25rem;
 }
 .post-card .card-content>p {
 	margin-bottom: 0.75rem;
@@ -445,9 +449,6 @@ input.form-control:focus {
 	font-size: 0.9em;
 	color: $gray-600;
 	margin-right: 10px;
-}
-.post-page .card-photo {
-	margin-bottom: 15px;
 }
 .edit-photo {
 	position: relative;

@@ -21,6 +21,7 @@
 						{{Form::textarea('content', '', ['class' => 'form-control', 'id' => 'summary-ckeditor', 'rows' => 3])}}
 					</div>
 					<div class="form-group">
+						<span class="pr-3">Optional Image:</span>
 						{{Form::file('post_image')}}
 					</div>
 					{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}

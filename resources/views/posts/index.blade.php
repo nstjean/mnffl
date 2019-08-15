@@ -58,7 +58,9 @@
 							@if($post->image_name)
 								<div class="card-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid"></div>
 							@endif
-							<div class="card-content">{!! $post->content !!}</div>
+							@if($post->content)
+								<div class="card-content">{!! $post->content !!}</div>
+							@endif
 						</div>
 
 					</div>
