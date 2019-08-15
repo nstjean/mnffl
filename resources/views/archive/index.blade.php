@@ -23,7 +23,7 @@
 							@if(Auth::user()->isAdmin())
 								{{-- Card Header For Admins --}}
 								<div class="card-header card-header-divided clickable-row">
-									<a href="/archive/{{$archiveItem->id}}" class="card-header-left archive-title-link">
+									<a href="/archive/{{$archiveItem->id}}/edit" class="card-header-left archive-title-link">
 										{{-- <div class="hover-icon"><i class="fas fa-caret-right"></i></div> --}}
 										<h3>{{$archiveItem->id}}</h3>
 										<div class="hover-icon right-side"><i class="fas fa-edit"></i></div>

@@ -424,16 +424,45 @@ input.form-control:focus {
 	color: $gray-600;
 	margin-right: 10px;
 }
-.form-page form {
-	margin-top: 15px;
-}
-.edit-photo {
-	margin: auto;
-	margin-bottom: 15px;
-}
 .post-page .card-photo {
 	margin-bottom: 15px;
 }
+.edit-photo {
+	position: relative;
+	width: 100%;
+	max-height: 600px;
+	margin: auto;
+}
+.delete-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0.4rem 0.8rem;
+	font-size: 28px;
+	color: rgba(80, 80, 80, 0.8);
+}
+.restore-icon {
+	display: inline-block;
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 0;
+	overflow: hidden;
+	color: $primary;
+	/*padding: 0.2rem 0.3rem 1.2rem 0.3rem;*/
+	font-size: 18px;
+	transition: height 0.4s ease;
+}
+.restore-icon.show {
+	height: 34px;
+	transition: height 0.4s ease;
+}
+.restore-icon:hover {
+	color: lighten($primary, 10%);
+	text-decoration: none;
+	/*border: 1px solid $gray-900;*/
+}
+
 
 /*
  *	ARCHIVE

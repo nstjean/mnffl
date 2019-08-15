@@ -18,14 +18,19 @@
 			<div class="card p-3 mt-3">
 				{!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 				@if($post->image_name)
-					<div class="edit-photo"><img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid img-thumbnail"></div>
-					{{Form::hidden('post_image', 'true')}}
+					<div class="edit-photo">
+						<a href="#" class="delete-icon"><i class="fas fa-times"></i></a>
+						<img src="/storage/uploaded_images/{{$post->image_name}}" class="img-fluid" id="post-image">
+					</div>
+					<a href="#" class="restore-icon"><i class="fas fa-undo-alt"></i> Undo Image Delete</a>
+					{{Form::hidden('post_image', 'true', ['id' => 'image-exists'])}}
+					{{Form::hidden('delete_image', 'false', ['id' => 'delete-image-checkbox'])}}
 				@endif
 					<div class="form-group">
 						{{Form::textarea('content', $post->content, ['class' => 'form-control', 'id' => 'summary-ckeditor', 'rows' => 3])}}
 					</div>
 					{{Form::hidden('_method','PUT')}}
-					{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+					{{Form::submit('Save', ['class' => 'btn btn-primary'])}}
 				{!! Form::close() !!}
 			</div>
 

@@ -4,6 +4,7 @@ $(".delete-form").on("submit", function(){
 });
 
 // Post delete button for posts
+// submits the hidden form
 $(".delete-anchor").on("click", function(){
 	event.preventDefault();
 	if(confirm("Permanently delete?")) {
@@ -12,13 +13,18 @@ $(".delete-anchor").on("click", function(){
 	}
 });
 
-// // hover effect for archive title
-// $(".archive-title-link").hover(
-// 	function() {
-// 		$(this).child('h3').prepend('<i class="fas fa-caret-right"></i>');
-// 	},
-// 	function() {
-		
-// 	}
-// );
-
+// Delete button for images on edit post page
+$(".delete-icon").on("click", function() {
+	event.preventDefault();
+	$("#delete-image-checkbox").val(true);
+	$("#image-exists").val(false);
+	$(this).parent().hide('slow', () =>	$(".restore-icon").toggleClass('show'));
+});
+// Restore button for images on edit post page
+$(".restore-icon").on("click", function() {
+	event.preventDefault();
+	$("#delete-image-checkbox").val(false);
+	$("#image-exists").val(true);
+	$(".restore-icon").toggleClass('show');
+	$(".edit-photo").delay(300).show('slow');
+});

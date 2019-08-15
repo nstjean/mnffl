@@ -70,7 +70,7 @@ class PostsController extends Controller
         } else {
             $post->content = "";
         }
-        $post->user_id = 1; // auth()->user()->id;
+        $post->user_id = auth()->user()->id;
         $post->image_name = $fileNameToStore;
         $post->save();
 
@@ -112,18 +112,24 @@ class PostsController extends Controller
     {
         // validation
         $validatedData = $request->validate([
-            'content' => 'required_without:post_image',
+            'content' => 'required_without:post_image|required_if:post_image,false',
         ]);
 
-        // Update post
         $post = Post::find($id);
+
+        // Delete image
+        if($request->input('delete_image') && $post->image_name) {
+            Storage::delete('public/uploaded_images/'.$post->image_name);
+            $post->image_name = '';
+        }
+
+        // Update post
         if($request->input('content')) {
             $post->content = $request->input('content');
         } else {
-            $post->content = "";
+            $post->content = '';
         }
         $post->save();
-
         return redirect('/posts')->with('success', 'Post Edited');
     }
 
