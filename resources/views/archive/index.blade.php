@@ -24,11 +24,12 @@
 								{{-- Card Header For Admins --}}
 								<div class="card-header card-header-divided clickable-row">
 									<a href="/archive/{{$archiveItem->id}}" class="card-header-left archive-title-link">
-										<div class="hover-icon"><i class="fas fa-caret-right"></i></div>
+										{{-- <div class="hover-icon"><i class="fas fa-caret-right"></i></div> --}}
 										<h3>{{$archiveItem->id}}</h3>
+										<div class="hover-icon right-side"><i class="fas fa-edit"></i></div>
 									</a>
 					            	{{-- drop-down menu for edit/delete --}}
-									<div class="card-header-right dropdown show">
+{{-- 									<div class="card-header-right dropdown show">
 							            <a id="dropdownMenu{{ $archiveItem->id }}" class="dropdown-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							            	<i class="fas fa-ellipsis-h"></i>
 							            </a>
@@ -44,8 +45,8 @@
 						                        @csrf
 												{{Form::hidden('_method', 'DELETE')}}
 											{!!Form::close()!!}
-						                </div>
-									</div>
+						                </div> 
+									</div>--}}
 								</div>
 							@else
 								{{-- Card Header For Users --}}

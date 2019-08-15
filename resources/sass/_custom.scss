@@ -224,7 +224,13 @@ input.form-control:focus {
 		font-size: 24px;
 		color: $white;
 		overflow: hidden;
+		opacity: 0;
 		transition: all 0.2s ease;
+	}
+	.hover-icon.right-side {
+		left: auto;
+		right: 0;
+		font-size: 14px;
 	}
 	.hover-icon i {
 		flex: 0 0 auto;
@@ -234,6 +240,9 @@ input.form-control:focus {
 		transition: all 0.2s ease;
 		opacity: 1.0;
 		color: $white;
+	}
+	a:hover .hover-icon.right-side {
+		width: 44px;
 	}
 	.card-header-right .dropdown-icon {
 		height: 100%;

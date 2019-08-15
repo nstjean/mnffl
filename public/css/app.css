@@ -10637,7 +10637,14 @@ input.form-control:focus {
   font-size: 24px;
   color: #fff;
   overflow: hidden;
+  opacity: 0;
   transition: all 0.2s ease;
+}
+
+.clickable-row.card-header-divided .hover-icon.right-side {
+  left: auto;
+  right: 0;
+  font-size: 14px;
 }
 
 .clickable-row.card-header-divided .hover-icon i {
@@ -10649,6 +10656,10 @@ input.form-control:focus {
   transition: all 0.2s ease;
   opacity: 1;
   color: #fff;
+}
+
+.clickable-row.card-header-divided a:hover .hover-icon.right-side {
+  width: 44px;
 }
 
 .clickable-row.card-header-divided .card-header-right .dropdown-icon {
