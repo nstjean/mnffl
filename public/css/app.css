@@ -10469,6 +10469,11 @@ h1 {
   overflow: hidden;
 }
 
+.form-page .card {
+  padding: 1.25rem;
+  margin-top: 0.5rem;
+}
+
 /*
  *	FORM COMPONENTS
  */
@@ -10894,7 +10899,7 @@ input.form-control:focus {
 
 .post-card .card-content,
 .post-page .card-photo {
-  margin-top: 1.25rem;
+  margin-top: 1rem;
 }
 
 .post-card .card-content > p {
@@ -10982,10 +10987,6 @@ input.form-control:focus {
 /*
  *	ARCHIVE FORM
  */
-
-.archive-create-page form {
-  margin-top: 15px;
-}
 
 .archive-create-page label {
   margin-bottom: 0;

@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="row archive-create-page">
+	<div class="row archive-create-page form-page">
 		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
 		<div class="col-lg-8 col-md-10 col-sm-12 col-12">
 
@@ -15,7 +15,7 @@
 				</div>
 			</div>
 
-			<div class="card p-3 mt-3">
+			<div class="card">
 				{!! Form::open(['action' => ['ArchiveController@update', $archiveItem->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 					<div class="form-group">
 						{{Form::label('id', 'Year:', ['class' => ''])}}
@@ -67,7 +67,7 @@
 						{{Form::label('documents', 'Upload New Documents:', ['class' => ''])}}
 						{{Form::file('documents[]', ['multiple' => 'multiple'])}}
 					</div>
-					<div class="form-group">
+					<div class="form-group mb-0">
 						<label></label>
 						{{Form::hidden('_method','PUT')}}
 						{{Form::submit('Submit', ['class' => 'btn btn-primary form-submit'])}}

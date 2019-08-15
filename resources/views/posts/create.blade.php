@@ -15,7 +15,7 @@
 				</div>
 			</div>
 
-			<div class="card p-3 mt-3">
+			<div class="card">
 				{!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 					<div class="form-group">
 						{{Form::textarea('content', '', ['class' => 'form-control', 'id' => 'summary-ckeditor', 'rows' => 3])}}
