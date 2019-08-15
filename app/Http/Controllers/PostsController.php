@@ -118,7 +118,8 @@ class PostsController extends Controller
         $post = Post::find($id);
 
         // Delete image
-        if($request->input('delete_image') && $post->image_name) {
+        if($request->input('delete_image') == 'true' && $post->image_name != '') {
+            $deleted = "image delete";
             Storage::delete('public/uploaded_images/'.$post->image_name);
             $post->image_name = '';
         }
@@ -130,7 +131,8 @@ class PostsController extends Controller
             $post->content = '';
         }
         $post->save();
-        return redirect('/posts')->with('success', 'Post Edited');
+
+        return redirect('/posts')->with('success', 'Post Saved');
     }
 
     /**
