@@ -48,8 +48,9 @@
                     @if(Auth::user()->isAdmin())
         				<div class="form-group row">
                             {{Form::label('is_admin', 'Is Administrator:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
-                            <div class="col-md-6">
-        						{{Form::checkbox('is_admin', '1', $user->is_admin ? true : false)}}
+                            <div class="col-md-6 checkbox-container">
+            					{{Form::checkbox('is_admin', '1', $user->is_admin ? true : false, ['class' => 'regular-checkbox'])}}
+                                <label for="is_admin"></label>
         					</div>
         				</div>
                     @endif

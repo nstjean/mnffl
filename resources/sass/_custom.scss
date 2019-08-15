@@ -103,6 +103,17 @@ input.form-control:focus {
 	color: $gray-200;
 	border-color: $black;
 }
+.form-check .form-check-input:checked ~ .form-check-input::before {
+  background-color: green!important;
+}
+/*form .regular-checkbox + label,*/
+form .regular-checkbox:checked + label {
+	background-color: $gray-900;
+    border: 1px solid #666;
+}
+form .checkbox-container {
+	padding-top: 4px;
+}
 
 
 /*
