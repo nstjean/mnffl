@@ -129,8 +129,16 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->name = $request->input('name');
         $user->team_name = $request->input('team_name');
-        $user->is_admin = $request->input('is_admin') ? '1' : '0';
 
+        $is_admin = $request->input('is_admin') ? '1' : '0';
+        // only check if the user was an admin and new status is 0 - not an admin
+        // check if this is the only admin account, if so then fail
+        if($user->is_admin == 1 && $is_admin == 0 && User::where('is_admin','=',1)->count() === 1) {
+            return redirect()->back()->with('error', 'Cannot remove Administrator status from the only Administrator.')->withInput();
+        }
+        // if it didn't fail, assign the new admin status
+        $user->is_admin = $is_admin;
+        
         // if a file was uploaded
         if($request->file('profile_pic')) {
             // file upload
@@ -164,6 +172,12 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+
+        // check if this is the only admin account, if so then fail
+        if(User::where('is_admin','=',1)->count() === 1) {
+            return redirect()->back()->with('error', 'Cannot delete the only Administrator. Please promote another user first.');
+        }
+
         $user->delete();
         return redirect('/users')->with('success', 'User Deleted');
     }
