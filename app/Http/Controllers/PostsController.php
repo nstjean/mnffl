@@ -143,13 +143,16 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        // Delete post
         $post = Post::find($id);
-        // delete photo
+
+        // Delete photo
         if($post->image_name) {
             Storage::delete('public/uploaded_images/'.$post->image_name);
         }
+        // Delete post
         $post->delete();
-        return redirect('/posts')->with('success', 'Post Deleted');
+
+        // Returns back to page where delete was submitted from - could be index or dashboard
+        return redirect()->back()->with('success', 'Post Deleted');
     }
 }
