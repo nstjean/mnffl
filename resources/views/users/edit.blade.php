@@ -58,9 +58,9 @@
                     <div class="form-group row">
                         {{Form::label('profile_pic', 'Current Profile:', ['class' => 'col-md-4 col-form-label text-md-right'])}}
                         <div class="col-md-6">
-                            @if(Auth::user()->profile_pic)
+                            @if($user->profile_pic)
                                 <div class="profile-pic-wrapper">
-                                    <img src="{{ url('/storage/profile_pics/'.Auth::user()->profile_pic) }}" class="profile-pic">
+                                    <img src="{{ url('/storage/profile_pics/'.$user->profile_pic) }}" class="profile-pic">
                                 </div>
                             @endif
                         </div>
