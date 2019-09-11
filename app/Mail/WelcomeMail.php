@@ -30,6 +30,6 @@ class WelcomeMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.welcome');
+        return $this->subject('Welcome To The MNFFL Site')->view('emails.welcome');
     }
 }

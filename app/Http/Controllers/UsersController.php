@@ -179,7 +179,7 @@ class UsersController extends Controller
         $user = User::find($id);
 
         // check if this is the only admin account, if so then fail
-        if(User::where('is_admin','=',1)->count() === 1) {
+        if($user->is_admin && User::where('is_admin','=',1)->count() === 1) {
             return redirect()->back()->with('error', 'Cannot delete the only Administrator. Please promote another user first.');
         }
 
