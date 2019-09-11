@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use Auth;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
 {
@@ -65,6 +67,9 @@ class UsersController extends Controller
         $user->password = Hash::make($request->input('password'));
         //$user->profile_pic = $request->input('profile_pic');
         $user->save();
+
+        // send the user's information out by email
+        Mail::to($user->email)->send(new WelcomeMail($user));
 
         return redirect('/users')->with('success', 'New User Created');
     }
