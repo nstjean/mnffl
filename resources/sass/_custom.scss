@@ -317,29 +317,34 @@ form .checkbox-container {
 	align-items: stretch;
 	flex-wrap: nowrap;
 }
-.navbar-dark .navbar-brand {
-	flex: 1 1 100%;
- 	background-color: $primary;
- 	color: $black;
- 	text-align: center;
- 	margin: 0;
- 	padding: 5px;
- 	line-height: 40px;
- 	font-size: 28px;
- 	font-weight: bold;
-}
-.navbar-dark .navbar-brand:hover {
-	color: $black;
-}
-.navbar-dark .brand-left {
-	flex: 0 0 20px;
-	background-color: $primary;
-	background: linear-gradient(to right bottom, $black 50%, $primary 50%);
-}
-.navbar-dark .brand-right {
-	flex: 0 0 20px;
-	background-color: $primary;
-	background: linear-gradient(to right bottom, $primary 50%, $black 50%);
+.navbar-dark {
+	.navbar-brand {
+		flex: 1 1 100%;
+		font-family: 'Arial', sans-serif;
+	 	background-color: $primary;
+	 	text-align: center;
+	 	margin: 0;
+	 	padding: 5px;
+	 	line-height: 40px;
+	 	font-size: 28px;
+	}
+	.navbar-brand, .navbar-brand:active {
+	 	color: $black;
+	 	font-weight: 400;
+	}
+	.navbar-brand:hover {
+		color: $black;
+	}
+	.brand-left {
+		flex: 0 0 20px;
+		background-color: $primary;
+		background: linear-gradient(to right bottom, $black 49%, $primary 48%);
+	}
+	.brand-right {
+		flex: 0 0 20px;
+		background-color: $primary;
+		background: linear-gradient(to right bottom, $primary 49%, $black 48%);
+	}
 }
 /*NAV LINKS*/
 .navbar .navbar-collapse {
@@ -630,3 +635,11 @@ form .checkbox-container {
 }
 
 
+
+.jumbotron {
+	background: rgba(0, 0, 0, 0);
+	img {
+		display: inline-block;
+		margin-bottom: 2rem;
+	}
+}

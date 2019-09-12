@@ -10,10 +10,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
         @auth
+        <li class="nav-item">
+          <a class="nav-link" href="/">Posts</a>
+        </li>
           <li class="nav-item">
             <a class="nav-link" href="/archive">Archive</a>
           </li>
@@ -35,7 +35,6 @@
         {{-- Authentication Links --}}
         @guest
             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
         @else
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
