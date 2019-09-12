@@ -98,6 +98,10 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+
+        // check the PostPolicy
+        $this->authorize('edit', $post);
+
         return view('posts.edit')->with('post',$post);
     }
 
@@ -116,6 +120,9 @@ class PostsController extends Controller
         ]);
 
         $post = Post::find($id);
+
+        // check the PostPolicy
+        $this->authorize('update', $post);
 
         // Delete image
         if($request->input('delete_image') == 'true' && $post->image_name != '') {
@@ -144,6 +151,9 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        // check the PostPolicy
+        $this->authorize('delete', $post);
 
         // Delete photo
         if($post->image_name) {

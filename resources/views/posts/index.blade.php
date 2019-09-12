@@ -30,26 +30,28 @@
 								<div class="card-name">{{ $post->user->name }}</div>
 								<div class="card-small">{{ $post->created_at->format('g:ma \o\n n/j/y') }}</div>
 							</div>
-							<div class="card-header-right dropdown show">
-								{{-- Dropdown Menu --}}
-					            <a id="dropdownMenu{{ $post->id }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					            	<i class="fas fa-ellipsis-h"></i>
-					            </a>
+							@can('edit', $post)
+								<div class="card-header-right dropdown show">
+									{{-- Dropdown Menu --}}
+						            <a id="dropdownMenu{{ $post->id }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						            	<i class="fas fa-ellipsis-h"></i>
+						            </a>
 
-				                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu{{ $post->id }}">
-				                    <a class="dropdown-item" href="/posts/{{$post->id}}/edit">
-				                        Edit Post
-				                    </a>
-				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete-anchor" href="#" data-value="delete-form{{ $post->id }}">
-				                        {{ __('Delete') }}
-				                    </a>
-				                    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-post', 'id' => 'delete-form'.$post->id])!!}
-				                        @csrf
-										{{Form::hidden('_method', 'DELETE')}}
-									{!!Form::close()!!}
-				                </div>
-							</div>
+					                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu{{ $post->id }}">
+					                    <a class="dropdown-item" href="/posts/{{$post->id}}/edit">
+					                        Edit Post
+					                    </a>
+					                    <div class="dropdown-divider"></div>
+					                    <a class="dropdown-item delete-anchor" href="#" data-value="delete-form{{ $post->id }}">
+					                        {{ __('Delete') }}
+					                    </a>
+					                    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'delete-post', 'id' => 'delete-form'.$post->id])!!}
+					                        @csrf
+											{{Form::hidden('_method', 'DELETE')}}
+										{!!Form::close()!!}
+					                </div>
+								</div>
+							@endcan
 						</div>
 
 						{{-- Post Body --}}
