@@ -85,7 +85,7 @@
 								</li>
 							@endforeach
 						@else
-							<li class="list-group-item">No posts found</li>
+							<li class="list-group-item empty-row">No posts found</li>
 						@endif
 					</ul>
 					{{$posts->links()}}

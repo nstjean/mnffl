@@ -164,6 +164,9 @@ form .checkbox-container {
 /*
  *	TABLES
  */
+.list-group-item {
+	padding: 0;
+}
 .clickable-row,
 .row-header {
 	position: relative;
@@ -173,6 +176,9 @@ form .checkbox-container {
 }
 .row-header {
 	font-weight: bold;
+}
+.list-group-item.empty-row {
+	padding: 0.7em;
 }
 .clickable-row:hover {
 	background-color: $gray-900;
@@ -597,15 +603,12 @@ form .checkbox-container {
 /*
  *	DASHBOARD
  */
-.dashboard-page .card-header h3 {
-	margin: 0;
-}
-.dashboard-page .list-group-item {
-	padding: 0;
-}
 .card-dashboard-list-item,
 .card-dashboard-list-item>a {
 	width: 100%;
+	margin: 0;
+}
+.dashboard-page .card-header h3 {
 	margin: 0;
 }
 .dashboard-page .profile-info-top {
