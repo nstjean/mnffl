@@ -2,39 +2,24 @@
 /*
  *	************** CUSTOM STYLE SHEET ******************
  */
-html,
+html {
+	height: 100%;
+}
 body {
 	font: $font-size-base $font-family-sans-serif;
-	height: 100vh;
+	min-height: 100vh;
 	margin: 0;
 	padding: 0;
 	background-color: $background-color;
 }
-/*#app {
-	background-color: $background-color;
-	background-image:
-		linear-gradient(
-		  to top,
-	      $background-color, 
-	      $background-end
-	    ),
-    	url(/storage/images/grass-nofade.jpg);
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-size: 100%;
-}*/
-a {
-	color: $primary;
-}
-a:hover {
-	color: $primary;
+#app {
 }
 #background-image{
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background-image:
 /*		linear-gradient(
 		  to top,
@@ -50,7 +35,15 @@ a:hover {
 #main-content {
 	position: relative;
 	padding-top: 80px;
+	padding-bottom: 140px;
 	z-index: 500;
+}
+footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+	width: 100%;
 }
 h1 {
 	font-size: 3.35em;
@@ -59,6 +52,12 @@ h1 {
 	-moz-filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.9));
 	filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.9));
 	margin: 0;
+}
+a {
+	color: $primary;
+}
+a:hover {
+	color: $primary;
 }
 
 /*
@@ -297,7 +296,8 @@ form .checkbox-container {
  */
 .navbar {
  	padding: 0;
- 	/*height: $nav-height;*/
+ 	margin: 0;
+ 	// height: $nav-height;
 }
 .navbar .container,
 .navbar .brand-container,
@@ -309,6 +309,9 @@ form .checkbox-container {
 }
 .bg-dark {
  	background-color: $black !important;
+}
+.navbar > .container {
+	align-items: flex-end;
 }
 /*NAV LOGO*/
 .navbar .brand-container {
@@ -353,7 +356,9 @@ form .checkbox-container {
 .navbar-dark .navbar-nav .nav-link {
  	color: $white;
  	text-transform: uppercase;
- 	padding: 1.2em 0 1em 0;
+ 	// padding: 1.0em 0 0.8em 0;
+ 	padding: 0;
+ 	line-height: $nav-height - 5; /* allow 3px for the border on the bottom */
  	border-bottom: 3px solid $black;
 }
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -641,5 +646,25 @@ form .checkbox-container {
 	img {
 		display: inline-block;
 		margin-bottom: 2rem;
+	}
+}
+
+
+/*
+ *	FOOTER
+ */
+footer {
+	// height: 80px;
+	padding: 1rem;
+	background-color: $black;
+	font-size: 0.8rem;
+	color: $gray-600;
+	display: flex;
+	.footer-left {
+		flex: 0 0 50%;
+	}
+	.footer-right {
+		flex: 1 0 50%;
+		text-align: right;
 	}
 }

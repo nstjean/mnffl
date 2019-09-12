@@ -10428,35 +10428,16 @@ form .regular-checkbox:checked + label:after {
  *	************** CUSTOM STYLE SHEET ******************
  */
 
-html,
+html {
+  height: 100%;
+}
+
 body {
   font: 0.9rem "Nunito", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   background-color: #282828;
-}
-
-/*#app {
-	background-color: $background-color;
-	background-image:
-		linear-gradient(
-		  to top,
-	      $background-color, 
-	      $background-end
-	    ),
-    	url(/storage/images/grass-nofade.jpg);
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-size: 100%;
-}*/
-
-a {
-  color: #ed641a;
-}
-
-a:hover {
-  color: #ed641a;
 }
 
 #background-image {
@@ -10464,7 +10445,7 @@ a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-image: url(/storage/images/grass-nofade.jpg);
   background-position: top center;
   background-repeat: no-repeat;
@@ -10475,7 +10456,16 @@ a:hover {
 #main-content {
   position: relative;
   padding-top: 80px;
+  padding-bottom: 140px;
   z-index: 500;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
 }
 
 h1 {
@@ -10485,6 +10475,14 @@ h1 {
   -moz-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.9));
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.9));
   margin: 0;
+}
+
+a {
+  color: #ed641a;
+}
+
+a:hover {
+  color: #ed641a;
 }
 
 /*
@@ -10772,7 +10770,7 @@ form .checkbox-container {
 
 .navbar {
   padding: 0;
-  /*height: $nav-height;*/
+  margin: 0;
 }
 
 .navbar .container,
@@ -10786,6 +10784,10 @@ form .checkbox-container {
 
 .bg-dark {
   background-color: #000 !important;
+}
+
+.navbar > .container {
+  align-items: flex-end;
 }
 
 /*NAV LOGO*/
@@ -10839,7 +10841,9 @@ form .checkbox-container {
 .navbar-dark .navbar-nav .nav-link {
   color: #fff;
   text-transform: uppercase;
-  padding: 1.2em 0 1em 0;
+  padding: 0;
+  line-height: 45px;
+  /* allow 3px for the border on the bottom */
   border-bottom: 3px solid #000;
 }
 
@@ -11180,5 +11184,26 @@ form .checkbox-container {
 .jumbotron img {
   display: inline-block;
   margin-bottom: 2rem;
+}
+
+/*
+ *	FOOTER
+ */
+
+footer {
+  padding: 1rem;
+  background-color: #000;
+  font-size: 0.8rem;
+  color: #6c757d;
+  display: flex;
+}
+
+footer .footer-left {
+  flex: 0 0 50%;
+}
+
+footer .footer-right {
+  flex: 1 0 50%;
+  text-align: right;
 }
 

@@ -16,12 +16,12 @@
     <script src="https://kit.fontawesome.com/7fe5eb3b95.js"></script>
 </head>
 <body>
+    <div id="background-image">
+    </div>
+
     <div id="app">
 
         @include('inc.navbar')
-
-        <div id="background-image">
-        </div>
 
         <main class="container" id="main-content">
             
@@ -31,8 +31,7 @@
 
         </main>
 
-        <footer style="height: 100px">
-        </footer>
+        @include('inc.footer')
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
