@@ -55,12 +55,15 @@ class PostsController extends Controller
         // file upload
         $fileNameToStore = '';
         if($request->hasFile('post_image')) {
+            $allowedfileExtension=['jpg','gif'];
             $image = $request->file('post_image');
             $fileNameWithExt = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
-            $fileNameToStore = "img_".time().'.'.$extension;
-            $path = public_path('storage/uploaded_images/' . $fileNameToStore);
-            Image::make($image->getRealPath())->resize(800, 500)->save($path);
+            if(in_array($extension,$allowedfileExtension)) {
+                $fileNameToStore = "img_".time().'.'.$extension;
+                $path = 'storage/uploaded_images/' . $fileNameToStore;
+                Image::make($image->getRealPath())->resize(800, 500)->save($path);
+            }
         }
         
         // Create post
