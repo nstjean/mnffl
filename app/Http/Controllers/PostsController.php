@@ -61,8 +61,9 @@ class PostsController extends Controller
             $extension = $image->getClientOriginalExtension();
             if(in_array($extension,$allowedfileExtension)) {
                 $fileNameToStore = "img_".time().'.'.$extension;
-                $path = 'storage/uploaded_images/' . $fileNameToStore;
-                Image::make($image->getRealPath())->resize(800, 500)->save($path);
+                //$path = 'public/uploaded_images/' . $fileNameToStore;
+                //Image::make($image->getRealPath())->resize(800, 500)->save($path);
+                $path = $image->storeAs('public/uploaded_images', $fileNameToStore);
             }
         }
         
