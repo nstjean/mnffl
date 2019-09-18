@@ -10952,6 +10952,7 @@ form .checkbox-container {
 
 .post-card {
   margin: 0 0 10px 0;
+  /*Last P tag should have no margin on the bottom*/
 }
 
 .post-card .card-header-divided {
@@ -10968,15 +10969,22 @@ form .checkbox-container {
 }
 
 .post-card .card-content,
-.post-page .card-photo {
+.post-card .card-photo {
   margin-top: 1rem;
+}
+
+.post-card .card-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.post-card .card-photo img {
+  flex: 0 0 auto;
 }
 
 .post-card .card-content > p {
   margin-bottom: 0.75rem;
 }
-
-/*Last P tag should have no margin on the bottom*/
 
 .post-card .card-content > p:last-child {
   margin-bottom: 0;
@@ -10988,14 +10996,14 @@ form .checkbox-container {
   margin-right: 10px;
 }
 
-.edit-photo {
+.post-card .edit-photo {
   position: relative;
   width: 100%;
   max-height: 600px;
   margin: auto;
 }
 
-.delete-icon {
+.post-card .delete-icon {
   position: absolute;
   top: 0;
   right: 0;
@@ -11004,7 +11012,7 @@ form .checkbox-container {
   color: rgba(80, 80, 80, 0.8);
 }
 
-.restore-icon {
+.post-card .restore-icon {
   display: inline-block;
   position: relative;
   top: 0;
@@ -11017,12 +11025,12 @@ form .checkbox-container {
   transition: height 0.4s ease;
 }
 
-.restore-icon.show {
+.post-card .restore-icon.show {
   height: 34px;
   transition: height 0.4s ease;
 }
 
-.restore-icon:hover {
+.post-card .restore-icon:hover {
   color: #f18449;
   text-decoration: none;
   /*border: 1px solid $gray-900;*/
