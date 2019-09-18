@@ -9,6 +9,8 @@ use App\User;
 use Auth;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
+use Intervention\Image\ImageManagerStatic as Image;
+use Debugbar;
 
 class UsersController extends Controller
 {
@@ -94,7 +96,7 @@ class UsersController extends Controller
      */
     public function editLoggedIn()
     {
-        return view('users.edit');
+        return view('users.edit')->with('user', Auth::user());
     }
 
     /**
@@ -105,6 +107,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        //Debugbar::error('Error!');
+
         $user = User::find($id);
         return view('users.edit')->with('user', $user);
     }
@@ -118,6 +122,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //Debugbar::warning('Update');
+
         // check user is either admin or owner
         if(!Auth::user()->isAdmin() && Auth::user()->id != $id) {
             return redirect('/home')->with('error', 'Incorrect permissions.');
@@ -150,15 +156,27 @@ class UsersController extends Controller
             $allowedfileExtension=['jpg','gif'];
             $file = $request->file('profile_pic');
             $extension = $file->getClientOriginalExtension();
-            $fileNameToStore = "profile_".$id.'.'.$extension;
-            $fileWithPath = 'public/profile_pics'.$fileNameToStore;
+            $path = public_path('storage/profile_pics/');
+            $fileNameToStore = "id_".$id."_".time().'.'.$extension;
+            
             if(in_array($extension,$allowedfileExtension)) {
                 // delete existing file
-                if(Storage::exists($fileWithPath)) {
-                    Storage::delete($fileWithPath);
+                $oldFileWithPath = 'public/profile_pics/' . $user->profile_pic;
+                if(Storage::exists($oldFileWithPath)) {
+                    Storage::delete($oldFileWithPath);
                 }
                 // save new file in storage
-                $path = $file->storeAs('public/profile_pics', $fileNameToStore);
+                $imgPath = public_path('storage/profile_pics/' . $fileNameToStore);
+                Debugbar::warning('imgPath');
+                Image::make($file->getRealPath())
+                    ->resize(100, 100, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->save($imgPath);
+                //old method - save just in case
+                //$path = $file->storeAs($path, $fileNameToStore);
+
                 // save file name in user
                 $user->profile_pic = $fileNameToStore;
             }
@@ -166,6 +184,9 @@ class UsersController extends Controller
 
         $user->save();
 		return redirect('/users')->with('success', 'User Updated');
+
+        // Only while debugging!!
+        //return view('users.edit')->with('user', $user);
     }
 
     /**
