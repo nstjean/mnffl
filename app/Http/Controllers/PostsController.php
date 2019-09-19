@@ -35,6 +35,7 @@ class PostsController extends Controller
      */
     public function create()
     {
+        //Debugbar::error('Error!');
         return view('posts.create');
     }
 
