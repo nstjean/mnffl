@@ -2,9 +2,7 @@
 
 @section('content')
 
-<?php phpinfo(); ?>
-
-{{-- 	<div class="row post-page form-page">
+	<div class="row post-page form-page">
 		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
 		<div class="col-lg-8 col-md-10 col-sm-12 col-12">
 
@@ -32,12 +30,12 @@
 
 		</div>
 		<div class="col-lg-2 col-md-1 col-sm-0 col-0"></div>
-	</div> --}}
+	</div>
 
 	<!-- Script for text editor -->
-{{--     <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'summary-ckeditor' );
-    </script> --}}
+    </script>
 
 @endsection
