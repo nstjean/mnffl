@@ -11,6 +11,7 @@ use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
 use Intervention\Image\ImageManagerStatic as Image;
 use Debugbar;
+use App\Notifications\RegisteredUser;
 
 class UsersController extends Controller
 {
@@ -71,7 +72,7 @@ class UsersController extends Controller
         $user->save();
 
         // send the user's information out by email
-        Mail::to($user->email)->send(new WelcomeMail($user));
+        $user->notify(new RegisteredUser());
 
         return redirect('/users')->with('success', 'New User Created');
     }
