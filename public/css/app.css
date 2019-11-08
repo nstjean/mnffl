@@ -10998,9 +10998,10 @@ form .checkbox-container {
 
 .post-card .edit-photo {
   position: relative;
-  width: 100%;
+  display: inline-block;
   max-height: 600px;
   margin: 0 auto;
+  margin-bottom: 1rem;
 }
 
 .post-card .delete-icon {
@@ -11009,24 +11010,26 @@ form .checkbox-container {
   right: 0;
   padding: 0.4rem 0.8rem;
   font-size: 28px;
-  color: rgba(80, 80, 80, 0.8);
+  color: #ed641a;
+}
+
+.post-card .delete-icon:hover {
+  color: #fff;
 }
 
 .post-card .restore-icon {
-  display: inline-block;
+  display: block;
   position: relative;
   top: 0;
   left: 0;
   height: 0;
   overflow: hidden;
   color: #ed641a;
-  /*padding: 0.2rem 0.3rem 1.2rem 0.3rem;*/
   font-size: 18px;
   transition: height 0.4s ease;
 }
 
 .post-card .restore-icon.show {
-  display: inline-block;
   height: 34px;
   transition: height 0.4s ease;
 }
