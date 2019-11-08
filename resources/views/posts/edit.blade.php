@@ -15,7 +15,7 @@
 				</div>
 			</div>
 			
-			<div class="card">
+			<div class="card post-card">
 				{!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 				@if($post->image_name)
 					<div class="edit-photo">
