@@ -21,7 +21,7 @@ http://thawing-mountain-84691.herokuapp.com
 
 The demo site is deployed on Heroku free tier with a ClearDB database. You can log in with the following credentials:
 
-- admin / password
-- user / password
+- admin@gmail.com / password
+- user@gmail.com / password
 
-Heroku hosting does not include file storage. Because of this you cannot upload photos or documents in the demo site.
+Heroku hosting does not include file storage. Because of this you cannot upload/view photos or documents in the demo site.
