@@ -25,3 +25,19 @@ The demo site is deployed on Heroku free tier with a ClearDB database. You can l
 - user@gmail.com / password
 
 Heroku hosting does not include file storage. Because of this you cannot upload/view photos or documents in the demo site.
+
+
+## Development - Installation
+
+composer install
+npm install
+copy .env.example to .env and set the variables
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+
+
+## Development - Build
+
+npm run development
+php artisan serve

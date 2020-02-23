@@ -36911,8 +36911,8 @@ $(".restore-icon").on("click", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\dev\laragon\www\mnffl\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\dev\laragon\www\mnffl\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/natalie/Dev/Laravel/mnffl/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/natalie/Dev/Laravel/mnffl/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
