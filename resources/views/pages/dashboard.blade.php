@@ -18,6 +18,7 @@
 					<h3>Administrator Dashboard</h3>
 				</div>
 				<div class="card-body">
+					This is a new release!
 					<a href="{{ url('/users/') }}" class="btn btn-primary">Edit Users</a>
 					<a href="{{ url('/users/create/') }}" class="btn btn-primary ml-3">Add New User</a>
 				</div>
