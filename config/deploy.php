@@ -108,11 +108,9 @@ return [
     */
 
     'hosts' => [
-        '144.202.21.76' => [
+        'mnffl.net' => [
             'deploy_path' => '/var/www/laravel',
             'user' => 'root',
-            'identityFile' => '~/.ssh/id_rsa_gitlab',
-            // 'forwardAgent' => true,
         ],
     ],
 
