@@ -29,15 +29,15 @@ Heroku hosting does not include file storage. Because of this you cannot upload/
 
 ## Development - Installation
 
-composer install
-npm install
-copy .env.example to .env and set the variables
-php artisan key:generate
-php artisan migrate
-php artisan db:seed
+- `composer install`
+- `yarn install`
+- copy `.env.example` to `.env` and set the variables
+- `php artisan key:generate`
+- `php artisan migrate`
+- `php artisan db:seed`
 
 
 ## Development - Build
 
-npm run development
-php artisan serve
+- `npm run development`
+- `php artisan serve`
