@@ -41,3 +41,14 @@ Heroku hosting does not include file storage. Because of this you cannot upload/
 
 - `npm run development`
 - `php artisan serve`
+
+
+## Deployment
+
+- This site is set up to deploy using [laravel-deployer](https://github.com/lorisleiva/laravel-deployer)
+- Make sure ssh keys are set up correctly on server and local
+- Merge changes to `master`, push to GitLab
+- Run `php artisan deploy` to start deployment
+- `service php7.2-fpm reload` - may be needed to clear cache and show updated views
+
+To do: Set up GitLab pipeline to auto deploy
